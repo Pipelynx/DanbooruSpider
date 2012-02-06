@@ -7,7 +7,16 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "/usr/include/sqlite3.h"
 
-@interface DanbooruSpiderTests : SenTestCase
+#import "PLSankaku.h"
+#import "PLKonachan.h"
+#import "PLDonmai.h"
+
+@interface DanbooruSpiderTests : SenTestCase {
+    PLSankaku* _sankaku;
+    PLKonachan* _konachan;
+    PLDonmai* _donmai;
+}
 
 @end

@@ -36,11 +36,11 @@
 		4BAC26A414E067290052EEA7 /* PLTag.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BAC268A14E067280052EEA7 /* PLTag.h */; };
 		4BAC26A514E067290052EEA7 /* PLTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC268B14E067280052EEA7 /* PLTag.m */; };
 		4BAC26A614E067290052EEA7 /* TFHpple.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BAC268C14E067280052EEA7 /* TFHpple.h */; };
-		4BAC26A714E067290052EEA7 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC268D14E067280052EEA7 /* TFHpple.m */; };
+		4BAC26A714E067290052EEA7 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC268D14E067280052EEA7 /* TFHpple.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4BAC26A814E067290052EEA7 /* TFHppleElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BAC268E14E067280052EEA7 /* TFHppleElement.h */; };
-		4BAC26A914E067290052EEA7 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC268F14E067280052EEA7 /* TFHppleElement.m */; };
+		4BAC26A914E067290052EEA7 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC268F14E067280052EEA7 /* TFHppleElement.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4BAC26AA14E067290052EEA7 /* XPathQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BAC269014E067280052EEA7 /* XPathQuery.h */; };
-		4BAC26AB14E067290052EEA7 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC269114E067280052EEA7 /* XPathQuery.m */; };
+		4BAC26AB14E067290052EEA7 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC269114E067280052EEA7 /* XPathQuery.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,32 +162,13 @@
 		4BAC264C14E066A40052EEA7 /* DanbooruSpider */ = {
 			isa = PBXGroup;
 			children = (
+				4BAC26AC14E067E20052EEA7 /* Hpple */,
+				4BAC26AF14E0680D0052EEA7 /* Base */,
+				4BAC26B114E0682A0052EEA7 /* Sankaku */,
+				4BAC26AE14E068060052EEA7 /* Konachan */,
+				4BAC26B014E068250052EEA7 /* Donmai */,
 				4BAC267814E067280052EEA7 /* NSURL+Checks.h */,
 				4BAC267914E067280052EEA7 /* NSURL+Checks.m */,
-				4BAC267A14E067280052EEA7 /* PLDonmai.h */,
-				4BAC267B14E067280052EEA7 /* PLDonmai.m */,
-				4BAC267C14E067280052EEA7 /* PLDonmaiPost.h */,
-				4BAC267D14E067280052EEA7 /* PLDonmaiPost.m */,
-				4BAC267E14E067280052EEA7 /* PLKonachan.h */,
-				4BAC267F14E067280052EEA7 /* PLKonachan.m */,
-				4BAC268014E067280052EEA7 /* PLKonachanPost.h */,
-				4BAC268114E067280052EEA7 /* PLKonachanPost.m */,
-				4BAC268214E067280052EEA7 /* PLPage.h */,
-				4BAC268314E067280052EEA7 /* PLPage.m */,
-				4BAC268414E067280052EEA7 /* PLPost.h */,
-				4BAC268514E067280052EEA7 /* PLPost.m */,
-				4BAC268614E067280052EEA7 /* PLSankaku.h */,
-				4BAC268714E067280052EEA7 /* PLSankaku.m */,
-				4BAC268814E067280052EEA7 /* PLSankakuPost.h */,
-				4BAC268914E067280052EEA7 /* PLSankakuPost.m */,
-				4BAC268A14E067280052EEA7 /* PLTag.h */,
-				4BAC268B14E067280052EEA7 /* PLTag.m */,
-				4BAC268C14E067280052EEA7 /* TFHpple.h */,
-				4BAC268D14E067280052EEA7 /* TFHpple.m */,
-				4BAC268E14E067280052EEA7 /* TFHppleElement.h */,
-				4BAC268F14E067280052EEA7 /* TFHppleElement.m */,
-				4BAC269014E067280052EEA7 /* XPathQuery.h */,
-				4BAC269114E067280052EEA7 /* XPathQuery.m */,
 				4BAC264D14E066A40052EEA7 /* Supporting Files */,
 			);
 			path = DanbooruSpider;
@@ -221,6 +202,73 @@
 				4BAC266514E066A40052EEA7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4BAC26AC14E067E20052EEA7 /* Hpple */ = {
+			isa = PBXGroup;
+			children = (
+				4BAC26AD14E067F20052EEA7 /* XPath */,
+				4BAC268C14E067280052EEA7 /* TFHpple.h */,
+				4BAC268D14E067280052EEA7 /* TFHpple.m */,
+				4BAC268E14E067280052EEA7 /* TFHppleElement.h */,
+				4BAC268F14E067280052EEA7 /* TFHppleElement.m */,
+			);
+			name = Hpple;
+			sourceTree = "<group>";
+		};
+		4BAC26AD14E067F20052EEA7 /* XPath */ = {
+			isa = PBXGroup;
+			children = (
+				4BAC269014E067280052EEA7 /* XPathQuery.h */,
+				4BAC269114E067280052EEA7 /* XPathQuery.m */,
+			);
+			name = XPath;
+			sourceTree = "<group>";
+		};
+		4BAC26AE14E068060052EEA7 /* Konachan */ = {
+			isa = PBXGroup;
+			children = (
+				4BAC267E14E067280052EEA7 /* PLKonachan.h */,
+				4BAC267F14E067280052EEA7 /* PLKonachan.m */,
+				4BAC268014E067280052EEA7 /* PLKonachanPost.h */,
+				4BAC268114E067280052EEA7 /* PLKonachanPost.m */,
+			);
+			name = Konachan;
+			sourceTree = "<group>";
+		};
+		4BAC26AF14E0680D0052EEA7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4BAC268214E067280052EEA7 /* PLPage.h */,
+				4BAC268314E067280052EEA7 /* PLPage.m */,
+				4BAC268414E067280052EEA7 /* PLPost.h */,
+				4BAC268514E067280052EEA7 /* PLPost.m */,
+				4BAC268A14E067280052EEA7 /* PLTag.h */,
+				4BAC268B14E067280052EEA7 /* PLTag.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		4BAC26B014E068250052EEA7 /* Donmai */ = {
+			isa = PBXGroup;
+			children = (
+				4BAC267A14E067280052EEA7 /* PLDonmai.h */,
+				4BAC267B14E067280052EEA7 /* PLDonmai.m */,
+				4BAC267C14E067280052EEA7 /* PLDonmaiPost.h */,
+				4BAC267D14E067280052EEA7 /* PLDonmaiPost.m */,
+			);
+			name = Donmai;
+			sourceTree = "<group>";
+		};
+		4BAC26B114E0682A0052EEA7 /* Sankaku */ = {
+			isa = PBXGroup;
+			children = (
+				4BAC268614E067280052EEA7 /* PLSankaku.h */,
+				4BAC268714E067280052EEA7 /* PLSankaku.m */,
+				4BAC268814E067280052EEA7 /* PLSankakuPost.h */,
+				4BAC268914E067280052EEA7 /* PLSankakuPost.m */,
+			);
+			name = Sankaku;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
