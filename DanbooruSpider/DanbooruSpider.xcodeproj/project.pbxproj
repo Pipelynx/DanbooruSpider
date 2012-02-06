@@ -1,0 +1,542 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4BAC264714E066A40052EEA7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAC264614E066A40052EEA7 /* Cocoa.framework */; };
+		4BAC265114E066A40052EEA7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4BAC264F14E066A40052EEA7 /* InfoPlist.strings */; };
+		4BAC265D14E066A40052EEA7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAC265C14E066A40052EEA7 /* SenTestingKit.framework */; };
+		4BAC265E14E066A40052EEA7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAC264614E066A40052EEA7 /* Cocoa.framework */; };
+		4BAC266114E066A40052EEA7 /* DanbooruSpider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAC264314E066A40052EEA7 /* DanbooruSpider.framework */; };
+		4BAC266714E066A40052EEA7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4BAC266514E066A40052EEA7 /* InfoPlist.strings */; };
+		4BAC266A14E066A40052EEA7 /* DanbooruSpiderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC266914E066A40052EEA7 /* DanbooruSpiderTests.m */; };
+		4BAC267714E067080052EEA7 /* libxml2.2.7.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAC267614E067080052EEA7 /* libxml2.2.7.3.dylib */; };
+		4BAC269214E067280052EEA7 /* NSURL+Checks.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BAC267814E067280052EEA7 /* NSURL+Checks.h */; };
+		4BAC269314E067280052EEA7 /* NSURL+Checks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC267914E067280052EEA7 /* NSURL+Checks.m */; };
+		4BAC269414E067280052EEA7 /* PLDonmai.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BAC267A14E067280052EEA7 /* PLDonmai.h */; };
+		4BAC269514E067280052EEA7 /* PLDonmai.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC267B14E067280052EEA7 /* PLDonmai.m */; };
+		4BAC269614E067280052EEA7 /* PLDonmaiPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BAC267C14E067280052EEA7 /* PLDonmaiPost.h */; };
+		4BAC269714E067280052EEA7 /* PLDonmaiPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC267D14E067280052EEA7 /* PLDonmaiPost.m */; };
+		4BAC269814E067280052EEA7 /* PLKonachan.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BAC267E14E067280052EEA7 /* PLKonachan.h */; };
+		4BAC269914E067290052EEA7 /* PLKonachan.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC267F14E067280052EEA7 /* PLKonachan.m */; };
+		4BAC269A14E067290052EEA7 /* PLKonachanPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BAC268014E067280052EEA7 /* PLKonachanPost.h */; };
+		4BAC269B14E067290052EEA7 /* PLKonachanPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC268114E067280052EEA7 /* PLKonachanPost.m */; };
+		4BAC269C14E067290052EEA7 /* PLPage.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BAC268214E067280052EEA7 /* PLPage.h */; };
+		4BAC269D14E067290052EEA7 /* PLPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC268314E067280052EEA7 /* PLPage.m */; };
+		4BAC269E14E067290052EEA7 /* PLPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BAC268414E067280052EEA7 /* PLPost.h */; };
+		4BAC269F14E067290052EEA7 /* PLPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC268514E067280052EEA7 /* PLPost.m */; };
+		4BAC26A014E067290052EEA7 /* PLSankaku.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BAC268614E067280052EEA7 /* PLSankaku.h */; };
+		4BAC26A114E067290052EEA7 /* PLSankaku.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC268714E067280052EEA7 /* PLSankaku.m */; };
+		4BAC26A214E067290052EEA7 /* PLSankakuPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BAC268814E067280052EEA7 /* PLSankakuPost.h */; };
+		4BAC26A314E067290052EEA7 /* PLSankakuPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC268914E067280052EEA7 /* PLSankakuPost.m */; };
+		4BAC26A414E067290052EEA7 /* PLTag.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BAC268A14E067280052EEA7 /* PLTag.h */; };
+		4BAC26A514E067290052EEA7 /* PLTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC268B14E067280052EEA7 /* PLTag.m */; };
+		4BAC26A614E067290052EEA7 /* TFHpple.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BAC268C14E067280052EEA7 /* TFHpple.h */; };
+		4BAC26A714E067290052EEA7 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC268D14E067280052EEA7 /* TFHpple.m */; };
+		4BAC26A814E067290052EEA7 /* TFHppleElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BAC268E14E067280052EEA7 /* TFHppleElement.h */; };
+		4BAC26A914E067290052EEA7 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC268F14E067280052EEA7 /* TFHppleElement.m */; };
+		4BAC26AA14E067290052EEA7 /* XPathQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BAC269014E067280052EEA7 /* XPathQuery.h */; };
+		4BAC26AB14E067290052EEA7 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC269114E067280052EEA7 /* XPathQuery.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4BAC265F14E066A40052EEA7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4BAC263914E066A40052EEA7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4BAC264214E066A40052EEA7;
+			remoteInfo = DanbooruSpider;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4BAC264314E066A40052EEA7 /* DanbooruSpider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DanbooruSpider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BAC264614E066A40052EEA7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		4BAC264914E066A40052EEA7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		4BAC264A14E066A40052EEA7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4BAC264B14E066A40052EEA7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4BAC264E14E066A40052EEA7 /* DanbooruSpider-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DanbooruSpider-Info.plist"; sourceTree = "<group>"; };
+		4BAC265014E066A40052EEA7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4BAC265214E066A40052EEA7 /* DanbooruSpider-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DanbooruSpider-Prefix.pch"; sourceTree = "<group>"; };
+		4BAC265B14E066A40052EEA7 /* DanbooruSpiderTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DanbooruSpiderTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BAC265C14E066A40052EEA7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		4BAC266414E066A40052EEA7 /* DanbooruSpiderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DanbooruSpiderTests-Info.plist"; sourceTree = "<group>"; };
+		4BAC266614E066A40052EEA7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4BAC266814E066A40052EEA7 /* DanbooruSpiderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DanbooruSpiderTests.h; sourceTree = "<group>"; };
+		4BAC266914E066A40052EEA7 /* DanbooruSpiderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DanbooruSpiderTests.m; sourceTree = "<group>"; };
+		4BAC267614E067080052EEA7 /* libxml2.2.7.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.7.3.dylib; path = usr/lib/libxml2.2.7.3.dylib; sourceTree = SDKROOT; };
+		4BAC267814E067280052EEA7 /* NSURL+Checks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Checks.h"; sourceTree = "<group>"; };
+		4BAC267914E067280052EEA7 /* NSURL+Checks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Checks.m"; sourceTree = "<group>"; };
+		4BAC267A14E067280052EEA7 /* PLDonmai.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLDonmai.h; sourceTree = "<group>"; };
+		4BAC267B14E067280052EEA7 /* PLDonmai.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLDonmai.m; sourceTree = "<group>"; };
+		4BAC267C14E067280052EEA7 /* PLDonmaiPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLDonmaiPost.h; sourceTree = "<group>"; };
+		4BAC267D14E067280052EEA7 /* PLDonmaiPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLDonmaiPost.m; sourceTree = "<group>"; };
+		4BAC267E14E067280052EEA7 /* PLKonachan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLKonachan.h; sourceTree = "<group>"; };
+		4BAC267F14E067280052EEA7 /* PLKonachan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLKonachan.m; sourceTree = "<group>"; };
+		4BAC268014E067280052EEA7 /* PLKonachanPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLKonachanPost.h; sourceTree = "<group>"; };
+		4BAC268114E067280052EEA7 /* PLKonachanPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLKonachanPost.m; sourceTree = "<group>"; };
+		4BAC268214E067280052EEA7 /* PLPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLPage.h; sourceTree = "<group>"; };
+		4BAC268314E067280052EEA7 /* PLPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLPage.m; sourceTree = "<group>"; };
+		4BAC268414E067280052EEA7 /* PLPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLPost.h; sourceTree = "<group>"; };
+		4BAC268514E067280052EEA7 /* PLPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLPost.m; sourceTree = "<group>"; };
+		4BAC268614E067280052EEA7 /* PLSankaku.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLSankaku.h; sourceTree = "<group>"; };
+		4BAC268714E067280052EEA7 /* PLSankaku.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLSankaku.m; sourceTree = "<group>"; };
+		4BAC268814E067280052EEA7 /* PLSankakuPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLSankakuPost.h; sourceTree = "<group>"; };
+		4BAC268914E067280052EEA7 /* PLSankakuPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLSankakuPost.m; sourceTree = "<group>"; };
+		4BAC268A14E067280052EEA7 /* PLTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLTag.h; sourceTree = "<group>"; };
+		4BAC268B14E067280052EEA7 /* PLTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLTag.m; sourceTree = "<group>"; };
+		4BAC268C14E067280052EEA7 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		4BAC268D14E067280052EEA7 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		4BAC268E14E067280052EEA7 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		4BAC268F14E067280052EEA7 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		4BAC269014E067280052EEA7 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		4BAC269114E067280052EEA7 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4BAC263F14E066A40052EEA7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BAC267714E067080052EEA7 /* libxml2.2.7.3.dylib in Frameworks */,
+				4BAC264714E066A40052EEA7 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BAC265714E066A40052EEA7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BAC265D14E066A40052EEA7 /* SenTestingKit.framework in Frameworks */,
+				4BAC265E14E066A40052EEA7 /* Cocoa.framework in Frameworks */,
+				4BAC266114E066A40052EEA7 /* DanbooruSpider.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4BAC263714E066A40052EEA7 = {
+			isa = PBXGroup;
+			children = (
+				4BAC264C14E066A40052EEA7 /* DanbooruSpider */,
+				4BAC266214E066A40052EEA7 /* DanbooruSpiderTests */,
+				4BAC264514E066A40052EEA7 /* Frameworks */,
+				4BAC264414E066A40052EEA7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4BAC264414E066A40052EEA7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4BAC264314E066A40052EEA7 /* DanbooruSpider.framework */,
+				4BAC265B14E066A40052EEA7 /* DanbooruSpiderTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4BAC264514E066A40052EEA7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4BAC264614E066A40052EEA7 /* Cocoa.framework */,
+				4BAC265C14E066A40052EEA7 /* SenTestingKit.framework */,
+				4BAC264814E066A40052EEA7 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4BAC264814E066A40052EEA7 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4BAC264914E066A40052EEA7 /* AppKit.framework */,
+				4BAC264A14E066A40052EEA7 /* CoreData.framework */,
+				4BAC264B14E066A40052EEA7 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		4BAC264C14E066A40052EEA7 /* DanbooruSpider */ = {
+			isa = PBXGroup;
+			children = (
+				4BAC267814E067280052EEA7 /* NSURL+Checks.h */,
+				4BAC267914E067280052EEA7 /* NSURL+Checks.m */,
+				4BAC267A14E067280052EEA7 /* PLDonmai.h */,
+				4BAC267B14E067280052EEA7 /* PLDonmai.m */,
+				4BAC267C14E067280052EEA7 /* PLDonmaiPost.h */,
+				4BAC267D14E067280052EEA7 /* PLDonmaiPost.m */,
+				4BAC267E14E067280052EEA7 /* PLKonachan.h */,
+				4BAC267F14E067280052EEA7 /* PLKonachan.m */,
+				4BAC268014E067280052EEA7 /* PLKonachanPost.h */,
+				4BAC268114E067280052EEA7 /* PLKonachanPost.m */,
+				4BAC268214E067280052EEA7 /* PLPage.h */,
+				4BAC268314E067280052EEA7 /* PLPage.m */,
+				4BAC268414E067280052EEA7 /* PLPost.h */,
+				4BAC268514E067280052EEA7 /* PLPost.m */,
+				4BAC268614E067280052EEA7 /* PLSankaku.h */,
+				4BAC268714E067280052EEA7 /* PLSankaku.m */,
+				4BAC268814E067280052EEA7 /* PLSankakuPost.h */,
+				4BAC268914E067280052EEA7 /* PLSankakuPost.m */,
+				4BAC268A14E067280052EEA7 /* PLTag.h */,
+				4BAC268B14E067280052EEA7 /* PLTag.m */,
+				4BAC268C14E067280052EEA7 /* TFHpple.h */,
+				4BAC268D14E067280052EEA7 /* TFHpple.m */,
+				4BAC268E14E067280052EEA7 /* TFHppleElement.h */,
+				4BAC268F14E067280052EEA7 /* TFHppleElement.m */,
+				4BAC269014E067280052EEA7 /* XPathQuery.h */,
+				4BAC269114E067280052EEA7 /* XPathQuery.m */,
+				4BAC264D14E066A40052EEA7 /* Supporting Files */,
+			);
+			path = DanbooruSpider;
+			sourceTree = "<group>";
+		};
+		4BAC264D14E066A40052EEA7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4BAC267614E067080052EEA7 /* libxml2.2.7.3.dylib */,
+				4BAC264E14E066A40052EEA7 /* DanbooruSpider-Info.plist */,
+				4BAC264F14E066A40052EEA7 /* InfoPlist.strings */,
+				4BAC265214E066A40052EEA7 /* DanbooruSpider-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4BAC266214E066A40052EEA7 /* DanbooruSpiderTests */ = {
+			isa = PBXGroup;
+			children = (
+				4BAC266814E066A40052EEA7 /* DanbooruSpiderTests.h */,
+				4BAC266914E066A40052EEA7 /* DanbooruSpiderTests.m */,
+				4BAC266314E066A40052EEA7 /* Supporting Files */,
+			);
+			path = DanbooruSpiderTests;
+			sourceTree = "<group>";
+		};
+		4BAC266314E066A40052EEA7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4BAC266414E066A40052EEA7 /* DanbooruSpiderTests-Info.plist */,
+				4BAC266514E066A40052EEA7 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4BAC264014E066A40052EEA7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BAC269214E067280052EEA7 /* NSURL+Checks.h in Headers */,
+				4BAC269414E067280052EEA7 /* PLDonmai.h in Headers */,
+				4BAC269614E067280052EEA7 /* PLDonmaiPost.h in Headers */,
+				4BAC269814E067280052EEA7 /* PLKonachan.h in Headers */,
+				4BAC269A14E067290052EEA7 /* PLKonachanPost.h in Headers */,
+				4BAC269C14E067290052EEA7 /* PLPage.h in Headers */,
+				4BAC269E14E067290052EEA7 /* PLPost.h in Headers */,
+				4BAC26A014E067290052EEA7 /* PLSankaku.h in Headers */,
+				4BAC26A214E067290052EEA7 /* PLSankakuPost.h in Headers */,
+				4BAC26A414E067290052EEA7 /* PLTag.h in Headers */,
+				4BAC26A614E067290052EEA7 /* TFHpple.h in Headers */,
+				4BAC26A814E067290052EEA7 /* TFHppleElement.h in Headers */,
+				4BAC26AA14E067290052EEA7 /* XPathQuery.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4BAC264214E066A40052EEA7 /* DanbooruSpider */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BAC266D14E066A40052EEA7 /* Build configuration list for PBXNativeTarget "DanbooruSpider" */;
+			buildPhases = (
+				4BAC263E14E066A40052EEA7 /* Sources */,
+				4BAC263F14E066A40052EEA7 /* Frameworks */,
+				4BAC264014E066A40052EEA7 /* Headers */,
+				4BAC264114E066A40052EEA7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DanbooruSpider;
+			productName = DanbooruSpider;
+			productReference = 4BAC264314E066A40052EEA7 /* DanbooruSpider.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4BAC265A14E066A40052EEA7 /* DanbooruSpiderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BAC267014E066A40052EEA7 /* Build configuration list for PBXNativeTarget "DanbooruSpiderTests" */;
+			buildPhases = (
+				4BAC265614E066A40052EEA7 /* Sources */,
+				4BAC265714E066A40052EEA7 /* Frameworks */,
+				4BAC265814E066A40052EEA7 /* Resources */,
+				4BAC265914E066A40052EEA7 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4BAC266014E066A40052EEA7 /* PBXTargetDependency */,
+			);
+			name = DanbooruSpiderTests;
+			productName = DanbooruSpiderTests;
+			productReference = 4BAC265B14E066A40052EEA7 /* DanbooruSpiderTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4BAC263914E066A40052EEA7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "PiKp (gebbwgl)";
+			};
+			buildConfigurationList = 4BAC263C14E066A40052EEA7 /* Build configuration list for PBXProject "DanbooruSpider" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4BAC263714E066A40052EEA7;
+			productRefGroup = 4BAC264414E066A40052EEA7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4BAC264214E066A40052EEA7 /* DanbooruSpider */,
+				4BAC265A14E066A40052EEA7 /* DanbooruSpiderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4BAC264114E066A40052EEA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BAC265114E066A40052EEA7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BAC265814E066A40052EEA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BAC266714E066A40052EEA7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4BAC265914E066A40052EEA7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4BAC263E14E066A40052EEA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BAC269314E067280052EEA7 /* NSURL+Checks.m in Sources */,
+				4BAC269514E067280052EEA7 /* PLDonmai.m in Sources */,
+				4BAC269714E067280052EEA7 /* PLDonmaiPost.m in Sources */,
+				4BAC269914E067290052EEA7 /* PLKonachan.m in Sources */,
+				4BAC269B14E067290052EEA7 /* PLKonachanPost.m in Sources */,
+				4BAC269D14E067290052EEA7 /* PLPage.m in Sources */,
+				4BAC269F14E067290052EEA7 /* PLPost.m in Sources */,
+				4BAC26A114E067290052EEA7 /* PLSankaku.m in Sources */,
+				4BAC26A314E067290052EEA7 /* PLSankakuPost.m in Sources */,
+				4BAC26A514E067290052EEA7 /* PLTag.m in Sources */,
+				4BAC26A714E067290052EEA7 /* TFHpple.m in Sources */,
+				4BAC26A914E067290052EEA7 /* TFHppleElement.m in Sources */,
+				4BAC26AB14E067290052EEA7 /* XPathQuery.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BAC265614E066A40052EEA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BAC266A14E066A40052EEA7 /* DanbooruSpiderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4BAC266014E066A40052EEA7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4BAC264214E066A40052EEA7 /* DanbooruSpider */;
+			targetProxy = 4BAC265F14E066A40052EEA7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4BAC264F14E066A40052EEA7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4BAC265014E066A40052EEA7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4BAC266514E066A40052EEA7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4BAC266614E066A40052EEA7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4BAC266B14E066A40052EEA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		4BAC266C14E066A40052EEA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		4BAC266E14E066A40052EEA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DanbooruSpider/DanbooruSpider-Prefix.pch";
+				INFOPLIST_FILE = "DanbooruSpider/DanbooruSpider-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		4BAC266F14E066A40052EEA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DanbooruSpider/DanbooruSpider-Prefix.pch";
+				INFOPLIST_FILE = "DanbooruSpider/DanbooruSpider-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		4BAC267114E066A40052EEA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DanbooruSpider/DanbooruSpider-Prefix.pch";
+				INFOPLIST_FILE = "DanbooruSpiderTests/DanbooruSpiderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		4BAC267214E066A40052EEA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DanbooruSpider/DanbooruSpider-Prefix.pch";
+				INFOPLIST_FILE = "DanbooruSpiderTests/DanbooruSpiderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4BAC263C14E066A40052EEA7 /* Build configuration list for PBXProject "DanbooruSpider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BAC266B14E066A40052EEA7 /* Debug */,
+				4BAC266C14E066A40052EEA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4BAC266D14E066A40052EEA7 /* Build configuration list for PBXNativeTarget "DanbooruSpider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BAC266E14E066A40052EEA7 /* Debug */,
+				4BAC266F14E066A40052EEA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4BAC267014E066A40052EEA7 /* Build configuration list for PBXNativeTarget "DanbooruSpiderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BAC267114E066A40052EEA7 /* Debug */,
+				4BAC267214E066A40052EEA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4BAC263914E066A40052EEA7 /* Project object */;
+}
