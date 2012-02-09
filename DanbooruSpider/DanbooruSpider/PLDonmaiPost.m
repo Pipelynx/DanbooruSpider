@@ -15,12 +15,11 @@
     PLDonmaiPost* temp = [[PLDonmaiPost alloc] init];
     [temp setPostNumber:postNumber];
     [temp setPage:aPage];
-    [temp setURL:[[aPage getURL] URLByAppendingPathComponent:[NSString stringWithFormat:@"post/show/%ld", postNumber]]];
     return temp;
 }
 
 - (void)updateCache {
-    NSString* post = [NSString stringWithContentsOfURL:_url encoding:NSUTF8StringEncoding error:nil];
+    NSString* post = [NSString stringWithContentsOfURL:[self URL] encoding:NSUTF8StringEncoding error:nil];
     if ([post rangeOfString:@"<p>This post does not exist.</p>"].location != NSNotFound) {
         return;
     }
@@ -44,19 +43,18 @@
     [tags sortUsingComparator:(NSComparator)^(id obj1, id obj2){ return [[obj1 getType] caseInsensitiveCompare:[obj2 getType]]; }];
     [properties setValue:[NSArray arrayWithArray:tags] forKey:@"tags"];
     
-    NSDecimalNumber* voteAverage;
-    elements = [doc searchWithXPathQuery:@"//li/span"];
-    for (int i = 0; i < [elements count]; i++) {
-        e = [elements objectAtIndex:i];
-        if ([[[e attributes] objectForKey:@"id"] hasPrefix:@"post-score"]) {
-            voteAverage = [NSDecimalNumber decimalNumberWithString:[e content]];
-        }
-    }
-    [properties setValue:voteAverage forKey:@"vote average"];
+    [properties setValue:[self voteAverageWithDocument:doc] forKey:@"vote average"];
     
-    elements = [doc searchWithXPathQuery:@"//li[starts-with(text(),\"Rating:\")]"];
-    e = [elements objectAtIndex:0];
-    [properties setValue:[[e content] stringByReplacingOccurrencesOfString:@"Rating: " withString:@""] forKey:@"rating"];
+    [properties setValue:[self ratingWithDocument:doc] forKey:@"rating"];
+}
+
+- (void)previousPost {
+    _postNumber--;
+    [self updateCache];
+}
+- (void)nextPost {
+    _postNumber++;
+    [self updateCache];
 }
 
 @end

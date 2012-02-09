@@ -13,28 +13,30 @@
 @interface PLPost : NSObject {
     NSMutableDictionary* properties;
     PLPage* _page;
-    NSURL* _url;
     NSInteger _postNumber;
 }
 
 + (PLPost*)postWithNumber:(NSInteger)postNumber andPage:(PLPage*)aPage;
 
 - (void)updateCache;
+- (NSString*)ratingWithDocument:(TFHpple*)doc;
+- (NSDecimalNumber*)voteAverageWithDocument:(TFHpple*)doc;
+- (void)previousPost;
+- (void)nextPost;
 
-- (PLPage*)getPage;
+- (PLPage*)page;
 - (void)setPage:(PLPage*)newPage;
 
-- (NSURL*)getURL;
-- (void)setURL:(NSURL*)newURL;
+- (NSURL*)URL;
 
-- (NSInteger)getPostNumber;
+- (NSInteger)postNumber;
 - (void)setPostNumber:(NSInteger)newPostNumber;
 
-- (NSURL*)getOriginalImageURL;
-- (NSData*)getOriginalImageData;
-- (NSURL*)getPNGImageURL;
-- (NSData*)getPNGImageData;
-- (NSArray*)getTags;
-- (NSDecimalNumber*)getVoteAverage;
-- (NSString*)getRating;
+- (NSURL*)originalImageURL;
+- (NSData*)originalImageData;
+- (NSURL*)PNGImageURL;
+- (NSData*)PNGImageData;
+- (NSArray*)tags;
+- (NSDecimalNumber*)voteAverage;
+- (NSString*)rating;
 @end

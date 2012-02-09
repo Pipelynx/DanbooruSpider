@@ -42,4 +42,8 @@
     return post;
 }
 
+- (PLDonmaiPost*)newestPost {
+    return [self postWithNumber:[self newestPostNumber]];
+}
+
 @end

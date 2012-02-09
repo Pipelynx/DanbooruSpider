@@ -14,5 +14,6 @@
 + (PLSankaku*)page;
 
 - (PLSankakuPost*)postWithNumber:(NSInteger)postNumber;
+- (PLSankakuPost*)newestPost;
 
 @end

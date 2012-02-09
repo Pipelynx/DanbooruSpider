@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B30DA4914E1C00900FA2C98 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B30DA4814E1C00900FA2C98 /* CoreData.framework */; };
+		4B30DA4B14E1C00900FA2C98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B30DA4A14E1C00900FA2C98 /* Foundation.framework */; };
+		4B30DA4E14E1C00900FA2C98 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B30DA4D14E1C00900FA2C98 /* main.m */; };
+		4B30DA5314E1C00900FA2C98 /* DanbooruSpiderCLI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4B30DA5114E1C00900FA2C98 /* DanbooruSpiderCLI.xcdatamodeld */; };
+		4B30DA5514E1C00900FA2C98 /* DanbooruSpiderCLI.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B30DA5414E1C00900FA2C98 /* DanbooruSpiderCLI.1 */; };
+		4B30DA5B14E1C46F00FA2C98 /* DanbooruSpider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAC264314E066A40052EEA7 /* DanbooruSpider.framework */; };
 		4BAC264714E066A40052EEA7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAC264614E066A40052EEA7 /* Cocoa.framework */; };
 		4BAC265114E066A40052EEA7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4BAC264F14E066A40052EEA7 /* InfoPlist.strings */; };
 		4BAC265D14E066A40052EEA7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAC265C14E066A40052EEA7 /* SenTestingKit.framework */; };
@@ -53,7 +59,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4B30DA4414E1C00900FA2C98 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				4B30DA5514E1C00900FA2C98 /* DanbooruSpiderCLI.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		4B30DA4614E1C00900FA2C98 /* DanbooruSpiderCLI */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DanbooruSpiderCLI; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B30DA4814E1C00900FA2C98 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4B30DA4A14E1C00900FA2C98 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4B30DA4D14E1C00900FA2C98 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4B30DA5014E1C00900FA2C98 /* DanbooruSpiderCLI-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DanbooruSpiderCLI-Prefix.pch"; sourceTree = "<group>"; };
+		4B30DA5214E1C00900FA2C98 /* DanbooruSpiderCLI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DanbooruSpiderCLI.xcdatamodel; sourceTree = "<group>"; };
+		4B30DA5414E1C00900FA2C98 /* DanbooruSpiderCLI.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = DanbooruSpiderCLI.1; sourceTree = "<group>"; };
 		4BAC264314E066A40052EEA7 /* DanbooruSpider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DanbooruSpider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BAC264614E066A40052EEA7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		4BAC264914E066A40052EEA7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -98,6 +124,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4B30DA4314E1C00900FA2C98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B30DA4914E1C00900FA2C98 /* CoreData.framework in Frameworks */,
+				4B30DA4B14E1C00900FA2C98 /* Foundation.framework in Frameworks */,
+				4B30DA5B14E1C46F00FA2C98 /* DanbooruSpider.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BAC263F14E066A40052EEA7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -120,11 +156,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B30DA4C14E1C00900FA2C98 /* DanbooruSpiderCLI */ = {
+			isa = PBXGroup;
+			children = (
+				4B30DA4D14E1C00900FA2C98 /* main.m */,
+				4B30DA5414E1C00900FA2C98 /* DanbooruSpiderCLI.1 */,
+				4B30DA5114E1C00900FA2C98 /* DanbooruSpiderCLI.xcdatamodeld */,
+				4B30DA4F14E1C00900FA2C98 /* Supporting Files */,
+			);
+			path = DanbooruSpiderCLI;
+			sourceTree = "<group>";
+		};
+		4B30DA4F14E1C00900FA2C98 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4B30DA5014E1C00900FA2C98 /* DanbooruSpiderCLI-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		4BAC263714E066A40052EEA7 = {
 			isa = PBXGroup;
 			children = (
 				4BAC264C14E066A40052EEA7 /* DanbooruSpider */,
 				4BAC266214E066A40052EEA7 /* DanbooruSpiderTests */,
+				4B30DA4C14E1C00900FA2C98 /* DanbooruSpiderCLI */,
 				4BAC264514E066A40052EEA7 /* Frameworks */,
 				4BAC264414E066A40052EEA7 /* Products */,
 			);
@@ -135,6 +191,7 @@
 			children = (
 				4BAC264314E066A40052EEA7 /* DanbooruSpider.framework */,
 				4BAC265B14E066A40052EEA7 /* DanbooruSpiderTests.octest */,
+				4B30DA4614E1C00900FA2C98 /* DanbooruSpiderCLI */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,6 +201,8 @@
 			children = (
 				4BAC264614E066A40052EEA7 /* Cocoa.framework */,
 				4BAC265C14E066A40052EEA7 /* SenTestingKit.framework */,
+				4B30DA4814E1C00900FA2C98 /* CoreData.framework */,
+				4B30DA4A14E1C00900FA2C98 /* Foundation.framework */,
 				4BAC264814E066A40052EEA7 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -297,6 +356,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		4B30DA4514E1C00900FA2C98 /* DanbooruSpiderCLI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B30DA5814E1C00900FA2C98 /* Build configuration list for PBXNativeTarget "DanbooruSpiderCLI" */;
+			buildPhases = (
+				4B30DA4214E1C00900FA2C98 /* Sources */,
+				4B30DA4314E1C00900FA2C98 /* Frameworks */,
+				4B30DA4414E1C00900FA2C98 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DanbooruSpiderCLI;
+			productName = DanbooruSpiderCLI;
+			productReference = 4B30DA4614E1C00900FA2C98 /* DanbooruSpiderCLI */;
+			productType = "com.apple.product-type.tool";
+		};
 		4BAC264214E066A40052EEA7 /* DanbooruSpider */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4BAC266D14E066A40052EEA7 /* Build configuration list for PBXNativeTarget "DanbooruSpider" */;
@@ -357,6 +433,7 @@
 			targets = (
 				4BAC264214E066A40052EEA7 /* DanbooruSpider */,
 				4BAC265A14E066A40052EEA7 /* DanbooruSpiderTests */,
+				4B30DA4514E1C00900FA2C98 /* DanbooruSpiderCLI */,
 			);
 		};
 /* End PBXProject section */
@@ -397,6 +474,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4B30DA4214E1C00900FA2C98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B30DA4E14E1C00900FA2C98 /* main.m in Sources */,
+				4B30DA5314E1C00900FA2C98 /* DanbooruSpiderCLI.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BAC263E14E066A40052EEA7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -455,6 +541,26 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4B30DA5614E1C00900FA2C98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DanbooruSpiderCLI/DanbooruSpiderCLI-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4B30DA5714E1C00900FA2C98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DanbooruSpiderCLI/DanbooruSpiderCLI-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		4BAC266B14E066A40052EEA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -559,6 +665,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4B30DA5814E1C00900FA2C98 /* Build configuration list for PBXNativeTarget "DanbooruSpiderCLI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B30DA5614E1C00900FA2C98 /* Debug */,
+				4B30DA5714E1C00900FA2C98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		4BAC263C14E066A40052EEA7 /* Build configuration list for PBXProject "DanbooruSpider" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -575,6 +689,7 @@
 				4BAC266F14E066A40052EEA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4BAC267014E066A40052EEA7 /* Build configuration list for PBXNativeTarget "DanbooruSpiderTests" */ = {
 			isa = XCConfigurationList;
@@ -583,8 +698,22 @@
 				4BAC267214E066A40052EEA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4B30DA5114E1C00900FA2C98 /* DanbooruSpiderCLI.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4B30DA5214E1C00900FA2C98 /* DanbooruSpiderCLI.xcdatamodel */,
+			);
+			currentVersion = 4B30DA5214E1C00900FA2C98 /* DanbooruSpiderCLI.xcdatamodel */;
+			path = DanbooruSpiderCLI.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4BAC263914E066A40052EEA7 /* Project object */;
 }

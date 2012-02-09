@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="878" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="DonmaiPost" syncable="YES">
+        <attribute name="originalURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="retry" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="KonachanPost" syncable="YES">
+        <attribute name="originalURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="retry" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="SankakuPost" syncable="YES">
+        <attribute name="originalURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="retry" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="SankakuPost" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="KonachanPost" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="DonmaiPost" positionX="160" positionY="192" width="128" height="90"/>
+    </elements>
+</model>

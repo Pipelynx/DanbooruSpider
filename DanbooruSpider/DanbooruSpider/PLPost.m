@@ -31,47 +31,67 @@
 - (void)updateCache {
     return;
 }
+- (NSString*)ratingWithDocument:(TFHpple*)doc {
+    NSArray* elements = [doc searchWithXPathQuery:@"//li[starts-with(text(),\"Rating:\")]"];
+    TFHppleElement* e = [elements objectAtIndex:0];
+    return [[e content] stringByReplacingOccurrencesOfString:@"Rating: " withString:@""];
+}
+- (NSDecimalNumber*)voteAverageWithDocument:(TFHpple*)doc {
+    NSDecimalNumber* voteAverage;
+    NSArray* elements = [doc searchWithXPathQuery:@"//li/span"];
+    TFHppleElement* e;
+    for (int i = 0; i < [elements count]; i++) {
+        e = [elements objectAtIndex:i];
+        if ([[[e attributes] objectForKey:@"id"] hasPrefix:@"post-score"]) {
+            voteAverage = [NSDecimalNumber decimalNumberWithString:[e content]];
+        }
+    }
+    return voteAverage;
+}
+- (void)previousPost {
+    _postNumber--;
+}
+- (void)nextPost {
+    _postNumber++;
+}
 
-- (PLPage*)getPage {
+- (PLPage*)page {
     return _page;
 }
 - (void)setPage:(PLPage*)newPage {
     _page = newPage;
 }
 
-- (NSURL*)getURL {
-    return _url;
-}
-- (void)setURL:(NSURL*)newURL {
-    _url = newURL;
+- (NSURL*)URL {
+    return [[_page URL] URLByAppendingPathComponent:[NSString stringWithFormat:@"post/show/%ld", _postNumber ]];
 }
 
-- (NSInteger)getPostNumber {
+- (NSInteger)postNumber {
     return _postNumber;
 }
 - (void)setPostNumber:(NSInteger)newPostNumber {
     _postNumber = newPostNumber;
 }
 
-- (NSURL*)getOriginalImageURL {
+- (NSURL*)originalImageURL {
     return [properties valueForKey:@"original"];
 }
-- (NSData*)getOriginalImageData {
-    return [NSData dataWithContentsOfURL:[self getOriginalImageURL]];
+- (NSData*)originalImageData {
+    return [NSData dataWithContentsOfURL:[self originalImageURL]];
 }
-- (NSURL*)getPNGImageURL {
+- (NSURL*)PNGImageURL {
     return [properties valueForKey:@"png"];
 }
-- (NSData*)getPNGImageData {
-    return [NSData dataWithContentsOfURL:[self getPNGImageURL]];
+- (NSData*)PNGImageData {
+    return [NSData dataWithContentsOfURL:[self PNGImageURL]];
 }
-- (NSArray*)getTags {
+- (NSArray*)tags {
     return [properties valueForKey:@"tags"];
 }
-- (NSDecimalNumber*)getVoteAverage {
+- (NSDecimalNumber*)voteAverage {
     return [properties valueForKey:@"vote average"];
 }
-- (NSString*)getRating {
+- (NSString*)rating {
     return [properties valueForKey:@"rating"];
 }
 

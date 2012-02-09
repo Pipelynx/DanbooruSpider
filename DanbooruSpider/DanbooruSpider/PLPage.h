@@ -22,8 +22,9 @@
 
 - (void)updateCache;
 - (PLPost*)postWithNumber:(NSInteger)postNumber;
+- (PLPost*)newestPost;
 
-- (NSURL*)getURL;
+- (NSURL*)URL;
 - (void)setURL:(NSURL*)newURL;
 
 - (NSInteger)newestPostNumber;

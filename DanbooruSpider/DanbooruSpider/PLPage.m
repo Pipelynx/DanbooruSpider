@@ -23,6 +23,9 @@
 + (PLPage*)page {
     return nil;
 }
+- (PLPost*)newestPost {
+    return nil;
+}
 
 - (void)updateCache {
     return;
@@ -31,7 +34,7 @@
     return nil;
 }
 
-- (NSURL*)getURL {
+- (NSURL*)URL {
     return _url;
 }
 - (void)setURL:(NSURL*)newURL {

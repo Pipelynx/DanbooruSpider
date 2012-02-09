@@ -42,4 +42,8 @@
     return post;
 }
 
+- (PLKonachanPost*)newestPost {
+    return [self postWithNumber:[self newestPostNumber]];
+}
+
 @end

@@ -14,5 +14,6 @@
 + (PLDonmai*)page;
 
 - (PLDonmaiPost*)postWithNumber:(NSInteger)postNumber;
+- (PLDonmaiPost*)newestPost;
 
 @end
