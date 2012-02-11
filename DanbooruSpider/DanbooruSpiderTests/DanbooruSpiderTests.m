@@ -30,69 +30,44 @@
     NSLog(@"Newest post number: %ld", [_sankaku newestPostNumber]);
     
     PLSankakuPost* post = [_sankaku postWithNumber:[_sankaku newestPostNumber]];
-    NSLog(@"Original image URL: %@", [[post originalImageURL] absoluteString]);
-    NSLog(@"Tags: %@", [post tags]);
-    NSLog(@"Vote average: %@", [post voteAverage]);
-    NSLog(@"Rating: %@", [post rating]);
+    NSLog(@"%@", post);
     
     post = [_sankaku postWithNumber:1220031];
-    NSLog(@"Original image URL: %@", [[post originalImageURL] absoluteString]);
-    NSLog(@"Tags: %@", [post tags]);
-    NSLog(@"Vote average: %@", [post voteAverage]);
-    NSLog(@"Rating: %@", [post rating]);
+    NSLog(@"%@", post);
 }
 
 - (void)testKonachan {
     NSLog(@"Newest post number: %ld", [_konachan newestPostNumber]);
     
     PLKonachanPost* post = [_konachan postWithNumber:[_konachan newestPostNumber]];
-    NSLog(@"Original image URL: %@", [[post originalImageURL] absoluteString]);
-    NSLog(@"PNG image URL: %@", [[post PNGImageURL] absoluteString]);
-    NSLog(@"Tags: %@", [post tags]);
-    NSLog(@"Vote average: %@", [post voteAverage]);
-    NSLog(@"Rating: %@", [post rating]);
+    NSLog(@"%@", post);
     
     post = [_konachan postWithNumber:126963];
-    NSLog(@"Original image URL: %@", [[post originalImageURL] absoluteString]);
-    NSLog(@"PNG image URL: %@", [[post PNGImageURL] absoluteString]);
-    NSLog(@"Tags: %@", [post tags]);
-    NSLog(@"Vote average: %@", [post voteAverage]);
-    NSLog(@"Rating: %@", [post rating]);
+    NSLog(@"%@", post);
 }
 
 - (void)testDonmai {
     NSLog(@"Newest post number: %ld", [_donmai newestPostNumber]);
     
     PLDonmaiPost* post = [_donmai postWithNumber:[_donmai newestPostNumber]];
-    NSLog(@"Original image URL: %@", [[post originalImageURL] absoluteString]);
-    NSLog(@"PNG image URL: %@", [[post PNGImageURL] absoluteString]);
-    NSLog(@"Tags: %@", [post tags]);
-    NSLog(@"Vote average: %@", [post voteAverage]);
-    NSLog(@"Rating: %@", [post rating]);
+    NSLog(@"%@", post);
     
     post = [_donmai postWithNumber:1091099];
-    NSLog(@"Original image URL: %@", [[post originalImageURL] absoluteString]);
-    NSLog(@"PNG image URL: %@", [[post PNGImageURL] absoluteString]);
-    NSLog(@"Tags: %@", [post tags]);
-    NSLog(@"Vote average: %@", [post voteAverage]);
-    NSLog(@"Rating: %@", [post rating]);
+    NSLog(@"%@", post);
 }
 
 - (void)testPreviousNext {
-    NSLog(@"Newest post number: %ld", [_sankaku newestPostNumber]);
-    
-    PLSankakuPost* post = [_sankaku postWithNumber:[_sankaku newestPostNumber]];
-    NSLog(@"Original image URL: %@", [[post originalImageURL] absoluteString]);
-    NSLog(@"Tags: %@", [post tags]);
-    NSLog(@"Vote average: %@", [post voteAverage]);
-    NSLog(@"Rating: %@", [post rating]);
+    PLSankakuPost* post = [_sankaku postWithNumber:1220031];
+    NSLog(@"%@", post);
     
     [post previousPost];
+    NSLog(@"%@", post);
     
-    NSLog(@"Original image URL: %@", [[post originalImageURL] absoluteString]);
-    NSLog(@"Tags: %@", [post tags]);
-    NSLog(@"Vote average: %@", [post voteAverage]);
-    NSLog(@"Rating: %@", [post rating]);
+    [post setPostNumber:1220022 andUpdate:YES];
+    NSLog(@"%@", post);
+    
+    [post nextPost];
+    NSLog(@"%@", post);
 }
 
 @end

@@ -13,6 +13,8 @@
 		4B30DA5314E1C00900FA2C98 /* DanbooruSpiderCLI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4B30DA5114E1C00900FA2C98 /* DanbooruSpiderCLI.xcdatamodeld */; };
 		4B30DA5514E1C00900FA2C98 /* DanbooruSpiderCLI.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B30DA5414E1C00900FA2C98 /* DanbooruSpiderCLI.1 */; };
 		4B30DA5B14E1C46F00FA2C98 /* DanbooruSpider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAC264314E066A40052EEA7 /* DanbooruSpider.framework */; };
+		4B30DA6814E5A12500FA2C98 /* DanbooruSpider.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BAC264314E066A40052EEA7 /* DanbooruSpider.framework */; };
+		4B30DA6A14E5A3BA00FA2C98 /* DanbooruSpiderCLI in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B30DA4614E1C00900FA2C98 /* DanbooruSpiderCLI */; };
 		4BAC264714E066A40052EEA7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAC264614E066A40052EEA7 /* Cocoa.framework */; };
 		4BAC265114E066A40052EEA7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4BAC264F14E066A40052EEA7 /* InfoPlist.strings */; };
 		4BAC265D14E066A40052EEA7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAC265C14E066A40052EEA7 /* SenTestingKit.framework */; };
@@ -21,8 +23,8 @@
 		4BAC266714E066A40052EEA7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4BAC266514E066A40052EEA7 /* InfoPlist.strings */; };
 		4BAC266A14E066A40052EEA7 /* DanbooruSpiderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC266914E066A40052EEA7 /* DanbooruSpiderTests.m */; };
 		4BAC267714E067080052EEA7 /* libxml2.2.7.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAC267614E067080052EEA7 /* libxml2.2.7.3.dylib */; };
-		4BAC269214E067280052EEA7 /* NSURL+Checks.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BAC267814E067280052EEA7 /* NSURL+Checks.h */; };
-		4BAC269314E067280052EEA7 /* NSURL+Checks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC267914E067280052EEA7 /* NSURL+Checks.m */; };
+		4BAC269214E067280052EEA7 /* NSString+Checks.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BAC267814E067280052EEA7 /* NSString+Checks.h */; };
+		4BAC269314E067280052EEA7 /* NSString+Checks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC267914E067280052EEA7 /* NSString+Checks.m */; };
 		4BAC269414E067280052EEA7 /* PLDonmai.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BAC267A14E067280052EEA7 /* PLDonmai.h */; };
 		4BAC269514E067280052EEA7 /* PLDonmai.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAC267B14E067280052EEA7 /* PLDonmai.m */; };
 		4BAC269614E067280052EEA7 /* PLDonmaiPost.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BAC267C14E067280052EEA7 /* PLDonmaiPost.h */; };
@@ -50,6 +52,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4B30DA6514E5A0A000FA2C98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4BAC263914E066A40052EEA7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4BAC264214E066A40052EEA7;
+			remoteInfo = DanbooruSpider;
+		};
 		4BAC265F14E066A40052EEA7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4BAC263914E066A40052EEA7 /* Project object */;
@@ -69,6 +78,26 @@
 				4B30DA5514E1C00900FA2C98 /* DanbooruSpiderCLI.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
+		};
+		4B30DA6714E5A10E00FA2C98 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "~/Library/Frameworks";
+			dstSubfolderSpec = 0;
+			files = (
+				4B30DA6814E5A12500FA2C98 /* DanbooruSpider.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B30DA6914E5A3AB00FA2C98 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/local/bin;
+			dstSubfolderSpec = 0;
+			files = (
+				4B30DA6A14E5A3BA00FA2C98 /* DanbooruSpiderCLI in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -95,8 +124,8 @@
 		4BAC266814E066A40052EEA7 /* DanbooruSpiderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DanbooruSpiderTests.h; sourceTree = "<group>"; };
 		4BAC266914E066A40052EEA7 /* DanbooruSpiderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DanbooruSpiderTests.m; sourceTree = "<group>"; };
 		4BAC267614E067080052EEA7 /* libxml2.2.7.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.7.3.dylib; path = usr/lib/libxml2.2.7.3.dylib; sourceTree = SDKROOT; };
-		4BAC267814E067280052EEA7 /* NSURL+Checks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Checks.h"; sourceTree = "<group>"; };
-		4BAC267914E067280052EEA7 /* NSURL+Checks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Checks.m"; sourceTree = "<group>"; };
+		4BAC267814E067280052EEA7 /* NSString+Checks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Checks.h"; sourceTree = "<group>"; };
+		4BAC267914E067280052EEA7 /* NSString+Checks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Checks.m"; sourceTree = "<group>"; };
 		4BAC267A14E067280052EEA7 /* PLDonmai.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLDonmai.h; sourceTree = "<group>"; };
 		4BAC267B14E067280052EEA7 /* PLDonmai.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLDonmai.m; sourceTree = "<group>"; };
 		4BAC267C14E067280052EEA7 /* PLDonmaiPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLDonmaiPost.h; sourceTree = "<group>"; };
@@ -226,8 +255,8 @@
 				4BAC26B114E0682A0052EEA7 /* Sankaku */,
 				4BAC26AE14E068060052EEA7 /* Konachan */,
 				4BAC26B014E068250052EEA7 /* Donmai */,
-				4BAC267814E067280052EEA7 /* NSURL+Checks.h */,
-				4BAC267914E067280052EEA7 /* NSURL+Checks.m */,
+				4BAC267814E067280052EEA7 /* NSString+Checks.h */,
+				4BAC267914E067280052EEA7 /* NSString+Checks.m */,
 				4BAC264D14E066A40052EEA7 /* Supporting Files */,
 			);
 			path = DanbooruSpider;
@@ -337,7 +366,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BAC269214E067280052EEA7 /* NSURL+Checks.h in Headers */,
+				4BAC269214E067280052EEA7 /* NSString+Checks.h in Headers */,
 				4BAC269414E067280052EEA7 /* PLDonmai.h in Headers */,
 				4BAC269614E067280052EEA7 /* PLDonmaiPost.h in Headers */,
 				4BAC269814E067280052EEA7 /* PLKonachan.h in Headers */,
@@ -363,10 +392,12 @@
 				4B30DA4214E1C00900FA2C98 /* Sources */,
 				4B30DA4314E1C00900FA2C98 /* Frameworks */,
 				4B30DA4414E1C00900FA2C98 /* CopyFiles */,
+				4B30DA6914E5A3AB00FA2C98 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4B30DA6614E5A0A000FA2C98 /* PBXTargetDependency */,
 			);
 			name = DanbooruSpiderCLI;
 			productName = DanbooruSpiderCLI;
@@ -381,6 +412,7 @@
 				4BAC263F14E066A40052EEA7 /* Frameworks */,
 				4BAC264014E066A40052EEA7 /* Headers */,
 				4BAC264114E066A40052EEA7 /* Resources */,
+				4B30DA6714E5A10E00FA2C98 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -487,7 +519,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BAC269314E067280052EEA7 /* NSURL+Checks.m in Sources */,
+				4BAC269314E067280052EEA7 /* NSString+Checks.m in Sources */,
 				4BAC269514E067280052EEA7 /* PLDonmai.m in Sources */,
 				4BAC269714E067280052EEA7 /* PLDonmaiPost.m in Sources */,
 				4BAC269914E067290052EEA7 /* PLKonachan.m in Sources */,
@@ -514,6 +546,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4B30DA6614E5A0A000FA2C98 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4BAC264214E066A40052EEA7 /* DanbooruSpider */;
+			targetProxy = 4B30DA6514E5A0A000FA2C98 /* PBXContainerItemProxy */;
+		};
 		4BAC266014E066A40052EEA7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4BAC264214E066A40052EEA7 /* DanbooruSpider */;

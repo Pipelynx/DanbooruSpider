@@ -19,11 +19,11 @@
 }
 
 - (void)updateCache {
-    NSString* post = [NSString stringWithContentsOfURL:[self URL] encoding:NSUTF8StringEncoding error:nil];
-    if ([post rangeOfString:@"<p>This post does not exist.</p>"].location != NSNotFound) {
+    [super updateCache];
+    if (![_source postExists])
         return;
-    }
-    TFHpple* doc = [[TFHpple alloc] initWithHTMLData:[post dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    TFHpple* doc = [[TFHpple alloc] initWithHTMLData:[_source dataUsingEncoding:NSUTF8StringEncoding]];
     NSArray* elements = [doc searchWithXPathQuery:@"//li/a[@id=\"highres\"]"];
     TFHppleElement* e = [elements objectAtIndex:0];
     [properties setValue:[NSURL URLWithString:[e objectForKey:@"href"]] forKey:@"original"];

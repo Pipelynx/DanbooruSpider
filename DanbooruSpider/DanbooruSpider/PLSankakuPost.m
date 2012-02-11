@@ -19,11 +19,11 @@
 }
 
 - (void)updateCache {
-    NSString* post = [NSString stringWithContentsOfURL:[self URL] encoding:NSUTF8StringEncoding error:nil];
-    if ([post rangeOfString:@"<p>This post does not exist.</p>"].location != NSNotFound) {
+    [super updateCache];
+    if (![_source postExists])
         return;
-    }
-    TFHpple* doc = [[TFHpple alloc] initWithHTMLData:[post dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    TFHpple* doc = [[TFHpple alloc] initWithHTMLData:[_source dataUsingEncoding:NSUTF8StringEncoding]];
     NSArray* elements = [doc searchWithXPathQuery:@"//li[starts-with(text(),\"Original\")]/a | //a[starts-with(text(),\"Save this flash\")]"];
     TFHppleElement* e = [elements objectAtIndex:0];
     [properties setValue:[NSURL URLWithString:[e objectForKey:@"href"]] forKey:@"original"];
@@ -42,13 +42,13 @@
     [properties setValue:[self ratingWithDocument:doc] forKey:@"rating"];
 }
 
-- (void)previousPost {
+/*- (void)previousPost {
     _postNumber--;
     [self updateCache];
 }
 - (void)nextPost {
     _postNumber++;
     [self updateCache];
-}
+}*/
 
 @end

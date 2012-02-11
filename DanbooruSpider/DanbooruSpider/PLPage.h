@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TFHpple.h"
 
-#import "NSURL+Checks.h"
+#import "NSString+Checks.h"
 
 #import "PLPost.h"
 

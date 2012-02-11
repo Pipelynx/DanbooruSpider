@@ -16,6 +16,7 @@
         properties = [NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSURL URLWithString:@""], [NSURL URLWithString:@""], [NSArray array], [NSDecimalNumber decimalNumberWithString:@"0.0"], @"", nil]
                                                         forKeys:[NSArray arrayWithObjects:@"original", @"png", @"tags", @"vote average", @"rating", nil]];
         _page = nil;
+        neverUpdated = YES;
         _postNumber = 0;
     }
     return self;
@@ -29,6 +30,8 @@
 }
 
 - (void)updateCache {
+    neverUpdated = NO;
+    _source = [NSString stringWithContentsOfURL:[self URL] encoding:NSUTF8StringEncoding error:nil];
     return;
 }
 - (NSString*)ratingWithDocument:(TFHpple*)doc {
@@ -48,11 +51,24 @@
     }
     return voteAverage;
 }
+
 - (void)previousPost {
-    _postNumber--;
+    [self previousPostAndUpdate:NO];
+}
+- (void)previousPostAndUpdate:(BOOL)update {
+    [self setPostNumber:(_postNumber - 1) andUpdate:YES];
+    if (update)
+        [self updateCache];
 }
 - (void)nextPost {
-    _postNumber++;
+    [self nextPostAndUpdate:NO];
+}
+- (void)nextPostAndUpdate:(BOOL)update {
+    [self setPostNumber:(_postNumber + 1) andUpdate:YES];
+}
+
+- (NSString*)description {
+    return [NSString stringWithFormat:@"[Post %ld] %@", _postNumber, [[[[self originalImageURL] absoluteString] pathComponents] lastObject]];
 }
 
 - (PLPage*)page {
@@ -65,33 +81,56 @@
 - (NSURL*)URL {
     return [[_page URL] URLByAppendingPathComponent:[NSString stringWithFormat:@"post/show/%ld", _postNumber ]];
 }
-
+- (NSString*)fileName {
+    return [NSString stringWithFormat:@"%ld.%@", _postNumber, [[[self originalImageURL] absoluteString] pathExtension]];
+}
 - (NSInteger)postNumber {
     return _postNumber;
 }
 - (void)setPostNumber:(NSInteger)newPostNumber {
+    [self setPostNumber:newPostNumber andUpdate:NO];
+}
+- (void)setPostNumber:(NSInteger)newPostNumber andUpdate:(BOOL)update {
     _postNumber = newPostNumber;
+    neverUpdated = YES;
+    if (update)
+        [self updateCache];
 }
 
+- (BOOL)postExists {
+    if (neverUpdated)
+        [self updateCache];
+    return [_source postExists];
+}
 - (NSURL*)originalImageURL {
+    if (neverUpdated)
+        [self updateCache];
     return [properties valueForKey:@"original"];
 }
 - (NSData*)originalImageData {
     return [NSData dataWithContentsOfURL:[self originalImageURL]];
 }
 - (NSURL*)PNGImageURL {
+    if (neverUpdated)
+        [self updateCache];
     return [properties valueForKey:@"png"];
 }
 - (NSData*)PNGImageData {
     return [NSData dataWithContentsOfURL:[self PNGImageURL]];
 }
 - (NSArray*)tags {
+    if (neverUpdated)
+        [self updateCache];
     return [properties valueForKey:@"tags"];
 }
 - (NSDecimalNumber*)voteAverage {
+    if (neverUpdated)
+        [self updateCache];
     return [properties valueForKey:@"vote average"];
 }
 - (NSString*)rating {
+    if (neverUpdated)
+        [self updateCache];
     return [properties valueForKey:@"rating"];
 }
 
