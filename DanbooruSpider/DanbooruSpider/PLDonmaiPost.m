@@ -40,7 +40,7 @@
         e = [elements objectAtIndex:i];
         [tags addObject:[PLTag tagWithType:[[[e attributes] objectForKey:@"class"] stringByReplacingOccurrencesOfString:@"tag-type-" withString:@""] andName:[[[e children] objectAtIndex:1] content]]];
     }
-    [tags sortUsingComparator:(NSComparator)^(id obj1, id obj2){ return [[obj1 getType] caseInsensitiveCompare:[obj2 getType]]; }];
+    [tags sortUsingComparator:(NSComparator)^(id obj1, id obj2){ return [[obj1 category] caseInsensitiveCompare:[obj2 category]]; }];
     [properties setValue:[NSArray arrayWithArray:tags] forKey:@"tags"];
     
     [properties setValue:[self voteAverageWithDocument:doc] forKey:@"vote average"];

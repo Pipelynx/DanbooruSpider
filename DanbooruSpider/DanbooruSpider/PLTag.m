@@ -12,7 +12,7 @@
 
 - (id)init {
     if (self = [super init]) {
-        _type = @"";
+        _category = @"";
         _name = @"";
     }
     return self;
@@ -20,19 +20,19 @@
 
 + (PLTag*)tagWithType:(NSString*)aType andName:(NSString*)aName {
     PLTag* temp = [[PLTag alloc] init];
-    [temp setType:aType];
+    [temp setCategory:aType];
     [temp setName:aName];
     return temp;
 }
 
-- (NSString*)getType {
-    return _type;
+- (NSString*)category {
+    return _category;
 }
-- (void)setType:(NSString*)newType {
-    _type = newType;
+- (void)setCategory:(NSString*)newType {
+    _category = newType;
 }
 
-- (NSString*)getName {
+- (NSString*)name {
     return _name;
 }
 - (void)setName:(NSString*)newName {
@@ -40,7 +40,7 @@
 }
 
 - (NSString*)description {
-    return [NSString stringWithFormat:@"[%@] %@", _type, _name];
+    return [NSString stringWithFormat:@"[%@] %@", _category, _name];
 }
 
 @end

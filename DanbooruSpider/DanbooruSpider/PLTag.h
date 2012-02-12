@@ -9,16 +9,16 @@
 #import <Foundation/Foundation.h>
 
 @interface PLTag : NSObject {
-    NSString* _type;
+    NSString* _category;
     NSString* _name;
 }
 
 + (PLTag*)tagWithType:(NSString*)aType andName:(NSString*)aName;
 
-- (NSString*)getType;
-- (void)setType:(NSString*)newType;
+- (NSString*)category;
+- (void)setCategory:(NSString*)newType;
 
-- (NSString*)getName;
+- (NSString*)name;
 - (void)setName:(NSString*)newName;
 
 @end

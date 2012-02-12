@@ -56,7 +56,7 @@
     [self previousPostAndUpdate:NO];
 }
 - (void)previousPostAndUpdate:(BOOL)update {
-    [self setPostNumber:(_postNumber - 1) andUpdate:YES];
+    [self setPostNumber:(_postNumber - 1) andUpdate:update];
     if (update)
         [self updateCache];
 }
@@ -64,7 +64,7 @@
     [self nextPostAndUpdate:NO];
 }
 - (void)nextPostAndUpdate:(BOOL)update {
-    [self setPostNumber:(_postNumber + 1) andUpdate:YES];
+    [self setPostNumber:(_postNumber + 1) andUpdate:update];
 }
 
 - (NSString*)description {
@@ -82,6 +82,8 @@
     return [[_page URL] URLByAppendingPathComponent:[NSString stringWithFormat:@"post/show/%ld", _postNumber ]];
 }
 - (NSString*)fileName {
+    if (neverUpdated)
+        [self updateCache];
     return [NSString stringWithFormat:@"%ld.%@", _postNumber, [[[self originalImageURL] absoluteString] pathExtension]];
 }
 - (NSInteger)postNumber {

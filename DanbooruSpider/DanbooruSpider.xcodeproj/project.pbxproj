@@ -14,7 +14,12 @@
 		4B30DA5514E1C00900FA2C98 /* DanbooruSpiderCLI.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B30DA5414E1C00900FA2C98 /* DanbooruSpiderCLI.1 */; };
 		4B30DA5B14E1C46F00FA2C98 /* DanbooruSpider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAC264314E066A40052EEA7 /* DanbooruSpider.framework */; };
 		4B30DA6814E5A12500FA2C98 /* DanbooruSpider.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BAC264314E066A40052EEA7 /* DanbooruSpider.framework */; };
-		4B30DA6A14E5A3BA00FA2C98 /* DanbooruSpiderCLI in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B30DA4614E1C00900FA2C98 /* DanbooruSpiderCLI */; };
+		4B30DA6A14E5A3BA00FA2C98 /* DanbooruSpiderCLI in Deploy */ = {isa = PBXBuildFile; fileRef = 4B30DA4614E1C00900FA2C98 /* DanbooruSpiderCLI */; };
+		4B54263D14E7BB79005F6927 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B30DA4A14E1C00900FA2C98 /* Foundation.framework */; };
+		4B54264014E7BB79005F6927 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B54263F14E7BB79005F6927 /* main.m */; };
+		4B54264414E7BB79005F6927 /* getSankakuTags.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B54264314E7BB79005F6927 /* getSankakuTags.1 */; };
+		4B54264914E7BD5C005F6927 /* getSankakuTags in Deploy */ = {isa = PBXBuildFile; fileRef = 4B54263B14E7BB79005F6927 /* getSankakuTags */; };
+		4B54264A14E7BD81005F6927 /* DanbooruSpider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAC264314E066A40052EEA7 /* DanbooruSpider.framework */; };
 		4BAC264714E066A40052EEA7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAC264614E066A40052EEA7 /* Cocoa.framework */; };
 		4BAC265114E066A40052EEA7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4BAC264F14E066A40052EEA7 /* InfoPlist.strings */; };
 		4BAC265D14E066A40052EEA7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAC265C14E066A40052EEA7 /* SenTestingKit.framework */; };
@@ -89,14 +94,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4B30DA6914E5A3AB00FA2C98 /* CopyFiles */ = {
+		4B30DA6914E5A3AB00FA2C98 /* Deploy */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/local/bin;
 			dstSubfolderSpec = 0;
 			files = (
-				4B30DA6A14E5A3BA00FA2C98 /* DanbooruSpiderCLI in CopyFiles */,
+				4B30DA6A14E5A3BA00FA2C98 /* DanbooruSpiderCLI in Deploy */,
 			);
+			name = Deploy;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B54263914E7BB79005F6927 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				4B54264414E7BB79005F6927 /* getSankakuTags.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		4B54264814E7BD4A005F6927 /* Deploy */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/local/bin;
+			dstSubfolderSpec = 0;
+			files = (
+				4B54264914E7BD5C005F6927 /* getSankakuTags in Deploy */,
+			);
+			name = Deploy;
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -109,6 +136,11 @@
 		4B30DA5014E1C00900FA2C98 /* DanbooruSpiderCLI-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DanbooruSpiderCLI-Prefix.pch"; sourceTree = "<group>"; };
 		4B30DA5214E1C00900FA2C98 /* DanbooruSpiderCLI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DanbooruSpiderCLI.xcdatamodel; sourceTree = "<group>"; };
 		4B30DA5414E1C00900FA2C98 /* DanbooruSpiderCLI.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = DanbooruSpiderCLI.1; sourceTree = "<group>"; };
+		4B54260C14E70E60005F6927 /* Automator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Automator.framework; path = System/Library/Frameworks/Automator.framework; sourceTree = SDKROOT; };
+		4B54263B14E7BB79005F6927 /* getSankakuTags */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = getSankakuTags; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B54263F14E7BB79005F6927 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4B54264214E7BB79005F6927 /* getSankakuTags-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "getSankakuTags-Prefix.pch"; sourceTree = "<group>"; };
+		4B54264314E7BB79005F6927 /* getSankakuTags.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = getSankakuTags.1; sourceTree = "<group>"; };
 		4BAC264314E066A40052EEA7 /* DanbooruSpider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DanbooruSpider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BAC264614E066A40052EEA7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		4BAC264914E066A40052EEA7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -163,6 +195,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4B54263814E7BB79005F6927 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B54263D14E7BB79005F6927 /* Foundation.framework in Frameworks */,
+				4B54264A14E7BD81005F6927 /* DanbooruSpider.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BAC263F14E066A40052EEA7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -204,12 +245,31 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4B54263E14E7BB79005F6927 /* getSankakuTags */ = {
+			isa = PBXGroup;
+			children = (
+				4B54263F14E7BB79005F6927 /* main.m */,
+				4B54264314E7BB79005F6927 /* getSankakuTags.1 */,
+				4B54264114E7BB79005F6927 /* Supporting Files */,
+			);
+			path = getSankakuTags;
+			sourceTree = "<group>";
+		};
+		4B54264114E7BB79005F6927 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4B54264214E7BB79005F6927 /* getSankakuTags-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		4BAC263714E066A40052EEA7 = {
 			isa = PBXGroup;
 			children = (
 				4BAC264C14E066A40052EEA7 /* DanbooruSpider */,
 				4BAC266214E066A40052EEA7 /* DanbooruSpiderTests */,
 				4B30DA4C14E1C00900FA2C98 /* DanbooruSpiderCLI */,
+				4B54263E14E7BB79005F6927 /* getSankakuTags */,
 				4BAC264514E066A40052EEA7 /* Frameworks */,
 				4BAC264414E066A40052EEA7 /* Products */,
 			);
@@ -221,6 +281,7 @@
 				4BAC264314E066A40052EEA7 /* DanbooruSpider.framework */,
 				4BAC265B14E066A40052EEA7 /* DanbooruSpiderTests.octest */,
 				4B30DA4614E1C00900FA2C98 /* DanbooruSpiderCLI */,
+				4B54263B14E7BB79005F6927 /* getSankakuTags */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -232,6 +293,7 @@
 				4BAC265C14E066A40052EEA7 /* SenTestingKit.framework */,
 				4B30DA4814E1C00900FA2C98 /* CoreData.framework */,
 				4B30DA4A14E1C00900FA2C98 /* Foundation.framework */,
+				4B54260C14E70E60005F6927 /* Automator.framework */,
 				4BAC264814E066A40052EEA7 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -392,7 +454,7 @@
 				4B30DA4214E1C00900FA2C98 /* Sources */,
 				4B30DA4314E1C00900FA2C98 /* Frameworks */,
 				4B30DA4414E1C00900FA2C98 /* CopyFiles */,
-				4B30DA6914E5A3AB00FA2C98 /* CopyFiles */,
+				4B30DA6914E5A3AB00FA2C98 /* Deploy */,
 			);
 			buildRules = (
 			);
@@ -402,6 +464,24 @@
 			name = DanbooruSpiderCLI;
 			productName = DanbooruSpiderCLI;
 			productReference = 4B30DA4614E1C00900FA2C98 /* DanbooruSpiderCLI */;
+			productType = "com.apple.product-type.tool";
+		};
+		4B54263A14E7BB79005F6927 /* getSankakuTags */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B54264514E7BB79005F6927 /* Build configuration list for PBXNativeTarget "getSankakuTags" */;
+			buildPhases = (
+				4B54263714E7BB79005F6927 /* Sources */,
+				4B54263814E7BB79005F6927 /* Frameworks */,
+				4B54263914E7BB79005F6927 /* CopyFiles */,
+				4B54264814E7BD4A005F6927 /* Deploy */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = getSankakuTags;
+			productName = getSankakuTags;
+			productReference = 4B54263B14E7BB79005F6927 /* getSankakuTags */;
 			productType = "com.apple.product-type.tool";
 		};
 		4BAC264214E066A40052EEA7 /* DanbooruSpider */ = {
@@ -466,6 +546,7 @@
 				4BAC264214E066A40052EEA7 /* DanbooruSpider */,
 				4BAC265A14E066A40052EEA7 /* DanbooruSpiderTests */,
 				4B30DA4514E1C00900FA2C98 /* DanbooruSpiderCLI */,
+				4B54263A14E7BB79005F6927 /* getSankakuTags */,
 			);
 		};
 /* End PBXProject section */
@@ -512,6 +593,14 @@
 			files = (
 				4B30DA4E14E1C00900FA2C98 /* main.m in Sources */,
 				4B30DA5314E1C00900FA2C98 /* DanbooruSpiderCLI.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B54263714E7BB79005F6927 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B54264014E7BB79005F6927 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,6 +683,24 @@
 				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DanbooruSpiderCLI/DanbooruSpiderCLI-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4B54264614E7BB79005F6927 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "getSankakuTags/getSankakuTags-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4B54264714E7BB79005F6927 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "getSankakuTags/getSankakuTags-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -707,6 +814,15 @@
 			buildConfigurations = (
 				4B30DA5614E1C00900FA2C98 /* Debug */,
 				4B30DA5714E1C00900FA2C98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B54264514E7BB79005F6927 /* Build configuration list for PBXNativeTarget "getSankakuTags" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B54264614E7BB79005F6927 /* Debug */,
+				4B54264714E7BB79005F6927 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
