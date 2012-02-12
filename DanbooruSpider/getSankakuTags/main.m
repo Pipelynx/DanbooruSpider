@@ -20,7 +20,7 @@ int main (int argc, const char * argv[])
         PLSankakuPost* post = [[PLSankaku page] postWithNumber:postNumber];
         NSArray* tags = [post tags];
         PLTag* tag;
-        NSMutableString* result = [NSMutableString string];
+        NSMutableString* result = [NSMutableString stringWithFormat:@"Rating|%@#", [post rating]];
         for (NSInteger i = 0; i < [tags count]; i++) {
             tag = [tags objectAtIndex:i];
             [result appendFormat:@"%@|%@#", [tag category], [tag name]];
