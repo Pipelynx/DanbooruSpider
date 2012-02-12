@@ -25,7 +25,7 @@ int main (int argc, const char * argv[])
             tag = [tags objectAtIndex:i];
             [result appendFormat:@"%@|%@#", [tag category], [tag name]];
         }
-        fprintf(stdout, "%s", [[result substringToIndex:[result length] - 2] UTF8String]);
+        fprintf(stdout, "%s", [[result substringToIndex:[result length] - 1] UTF8String]);
     }
     return 0;
 }
