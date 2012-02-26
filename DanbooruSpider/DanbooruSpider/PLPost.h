@@ -12,7 +12,7 @@
 
 @interface PLPost : NSObject {
     NSMutableDictionary* properties;
-    PLPage* _page;
+    __weak PLPage* _page;
     BOOL neverUpdated;
     NSInteger _postNumber;
     NSString* _source;

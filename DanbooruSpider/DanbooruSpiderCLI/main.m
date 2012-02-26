@@ -8,6 +8,8 @@
 
 BOOL pathContains(NSFileManager*, NSString*, NSInteger);
 
+#import "NSNumber+Formatting.h"
+
 #import "PLSankaku.h"
 #import "PLKonachan.h"
 #import "PLDonmai.h"
@@ -27,8 +29,11 @@ int main (int argc, const char * argv[])
         else
             from = [args integerForKey:@"from"];
         NSInteger to = [args integerForKey:@"to"];
-        NSInteger range = [args integerForKey:@"for"]; 
+        NSInteger range = [args integerForKey:@"for"];
+        NSNumberFormatter* f = [[NSNumberFormatter alloc] init];
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
         PLSankakuPost* post;
+        NSData* fileData;
         NSString* filePath;
         
         fprintf(stdout, "Working directory: %s\n", [path UTF8String]);
@@ -43,8 +48,9 @@ int main (int argc, const char * argv[])
                 filePath = [path stringByAppendingPathComponent:[post fileName]];
                 fprintf(stdout, "%s", [filePath UTF8String]);
                 if ([post postExists]) {
-                    [[post originalImageData] writeToFile:filePath atomically:YES];
-                    fprintf(stdout, " >> downloaded\n");
+                    fileData = [post originalImageData];
+                    [fileData writeToFile:filePath atomically:YES];
+                    fprintf(stdout, " >> %s downloaded\n", [[[NSNumber numberWithUnsignedInteger:[fileData length]] humanReadableBase10] UTF8String]);
                 }   
                 else
                     fprintf(stdout, " >> invalid\n");
@@ -52,6 +58,7 @@ int main (int argc, const char * argv[])
             [post previousPost];
         }
     }
+    fprintf(stdout, "Done");
     return 0;
 }
 

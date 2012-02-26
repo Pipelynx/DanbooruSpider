@@ -42,13 +42,4 @@
     [properties setValue:[self ratingWithDocument:doc] forKey:@"rating"];
 }
 
-/*- (void)previousPost {
-    _postNumber--;
-    [self updateCache];
-}
-- (void)nextPost {
-    _postNumber++;
-    [self updateCache];
-}*/
-
 @end

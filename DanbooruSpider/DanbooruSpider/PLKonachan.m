@@ -37,7 +37,7 @@
 }
 
 - (PLKonachanPost*)postWithNumber:(NSInteger)postNumber {
-    PLKonachanPost* post = [PLKonachanPost postWithNumber:postNumber andPage:self];
+    __weak PLKonachanPost* post = [PLKonachanPost postWithNumber:postNumber andPage:self];
     [post updateCache];
     return post;
 }

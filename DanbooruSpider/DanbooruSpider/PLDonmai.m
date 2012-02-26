@@ -37,7 +37,7 @@
 }
 
 - (PLDonmaiPost*)postWithNumber:(NSInteger)postNumber {
-    PLDonmaiPost* post = [PLDonmaiPost postWithNumber:postNumber andPage:self];
+    __weak PLDonmaiPost* post = [PLDonmaiPost postWithNumber:postNumber andPage:self];
     [post updateCache];
     return post;
 }

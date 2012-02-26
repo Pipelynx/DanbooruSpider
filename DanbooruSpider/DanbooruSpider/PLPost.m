@@ -12,12 +12,13 @@
 @implementation PLPost
 
 - (id)init {
-    if ([super init]) {
+    if (self = [super init]) {
         properties = [NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSURL URLWithString:@""], [NSURL URLWithString:@""], [NSArray array], [NSDecimalNumber decimalNumberWithString:@"0.0"], @"", nil]
                                                         forKeys:[NSArray arrayWithObjects:@"original", @"png", @"tags", @"vote average", @"rating", nil]];
         _page = nil;
         neverUpdated = YES;
         _postNumber = 0;
+        _source = nil;
     }
     return self;
 }

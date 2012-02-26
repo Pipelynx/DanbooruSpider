@@ -12,8 +12,8 @@
 @implementation PLPage
 
 - (id)init {
-    if ([super init]) {
-        properties = properties = [NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"0", nil]
+    if (self = [super init]) {
+        properties =  [NSMutableDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"0", nil]
                                                                      forKeys:[NSArray arrayWithObjects:@"newestPostNumber", nil]];
         _url = nil;
     }

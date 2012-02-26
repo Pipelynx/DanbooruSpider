@@ -11,10 +11,12 @@
 @implementation NSString (Checks)
 
 - (BOOL)postExists {
-    if ([self rangeOfString:@"<p>This post does not exist.</p>"].location == NSNotFound) {
-        return YES;
-    }
-    return NO;
+    BOOL result = YES;
+    if ([self rangeOfString:@"<p>This post does not exist.</p>"].location != NSNotFound)
+        result = NO;
+    if ([self rangeOfString:@"This post was deleted."].location != NSNotFound)
+        result = NO;
+    return result;
 }
 
 @end
