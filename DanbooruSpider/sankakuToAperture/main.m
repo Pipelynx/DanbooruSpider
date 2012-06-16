@@ -8,150 +8,177 @@
 
 #import <Foundation/Foundation.h>
 #import "PLSankaku.h"
+#import "PLKonachan.h"
 
-#define TempPath @"/Volumes/Hyou/Sankaku/"
-#define ASTempPath @"Hyou:Sankaku:"
+#define TempPath [@"~/Pictures/" stringByExpandingTildeInPath]
 #define Quit @"tell application \"Aperture\" to quit"
-#define CheckExists @"tell application \"Aperture\"\ntell library 1\nset images to (every image version where name is \"%@\")\nif ((count of images) > 0) then\nreturn \"exists\"\nend if\nend tell\nend tell"
-#define ImportFile @"tell application \"Aperture\"\ntell library 1\nset images to import \"%@\" as alias into project \"Import\" by moving\nif ((count of images) > 0) then\ntell item 1 of images\nset color label to %@\ndelete (every keyword of item 1 of images)\n%@end tell\nend if\nend tell\nend tell"
+#define GetPhotos @"tell application \"Aperture\"\ntell library 1\nreturn the name of every image version in container \"%@\"\nend tell\nend tell"
+#define CheckExists @"tell application \"Aperture\"\ntell library 1\nset images to (every image version where name is \"%@\")\nrepeat with image in images\nif \"%@\" is in name of parent of image then\nreturn \"exists\"\nend if\nend repeat\nend tell\nend tell"
+#define ImportFile @"tell application \"Aperture\"\ntell library 1\nset images to import POSIX file \"%@\" into project \"Import\" by moving\nif ((count of images) > 0) then\ntell item 1 of images\nset color label to %@\ndelete (every keyword of item 1 of images)\n%@end tell\nend if\nend tell\nend tell"
 #define SetKeywords @"tell application \"Aperture\"\ntell library 1\nset images to (every image version where name is \"%@\")\nif ((count of images) > 0) then\ntell item 1 of images\ndelete (every keyword of item 1 of images)\nset color label to %@\n%@end tell\nend if\nend tell\nend tell"
 #define MakeKeyword @"make new keyword with properties {name:\"%@\", parents:\"%@\"}\n"
 
-BOOL apertureContains(NSInteger);
+BOOL apertureContains(NSString*, NSString*);
 BOOL postIsFlash(NSInteger);
-void apertureImport(NSString*, NSString*, NSArray*);
-void apertureTagPhoto(NSInteger, NSString*, NSArray*);
-NSString* getApertureTagPhoto(NSInteger, NSString*, NSArray*);
+void apertureImport(NSString*, PLPost*);
+void apertureTagPhoto(PLPost*);
+NSArray* apertureGetPhotos(NSString*);
 BOOL pathContains(NSInteger);
 
 int main (int argc, const char * argv[])
 {
     @autoreleasepool {
-#pragma mark Initial definitions
-        //[[[NSAppleScript alloc] initWithSource:Quit] executeAndReturnError:nil];
-        NSUserDefaults* args = [NSUserDefaults standardUserDefaults];
-        NSString* mode = [args stringForKey:@"mode"];
-        PLSankaku* page = [PLSankaku page];
-        PLSankakuPost* post = nil;
+        NSUserDefaults* params = [NSUserDefaults standardUserDefaults];
+        NSString* site = [params stringForKey:@"site"];
+        NSString* longSite = nil;
+        if ([site isEqualToString:@"konachan"])
+            longSite = @"Konachan";
+        if ([site isEqualToString:@"sankaku"])
+            longSite = @"Sankaku Channel";
+        NSString* mode = [params stringForKey:@"mode"];
+        NSString* album = [params stringForKey:@"album"];
+        NSString* project = [params stringForKey:@"project"];
         
-#pragma mark Parsing number string
+        NSMutableOrderedSet* postNumbers = [NSMutableOrderedSet orderedSet];
+        if (album) {
+            fprintf(stdout, "Getting photos for album %s... ", [album UTF8String]);
+            [postNumbers addObjectsFromArray:apertureGetPhotos(album)];
+            fprintf(stdout, "got %lu photos\n", [postNumbers count]);
+        }
+        if ([[params stringForKey:@"range"] rangeOfString:@"-"].location > 0)
+            for (NSInteger i = [[[[params stringForKey:@"range"] componentsSeparatedByString:@"-"] objectAtIndex:0] integerValue]; i <= [[[[params stringForKey:@"range"] componentsSeparatedByString:@"-"] objectAtIndex:1] integerValue]; i++) {
+                [postNumbers addObject:[NSString stringWithFormat:@"%@ - %li", longSite, i]];
+            }
         
-        NSMutableArray* numbers = [NSMutableArray array];
-        NSArray* numbersArg = [[args stringForKey:@"n"] componentsSeparatedByString:@","];
-        NSArray* element = nil;
-        NSInteger low, high;
-        for (NSInteger i = 0; i < [numbersArg count]; i++) {
-            element = [[numbersArg objectAtIndex:i] componentsSeparatedByString:@"-"];
-            if ([element count] > 1) {
-                if ([[element objectAtIndex:0] integerValue] < [[element objectAtIndex:1] integerValue]) {
-                    low = [[element objectAtIndex:0] integerValue];
-                    high = [[element objectAtIndex:1] integerValue];
-                } else {
-                    low = [[element objectAtIndex:1] integerValue];
-                    high = [[element objectAtIndex:0] integerValue];
-                }
-                for (NSInteger j = low; j <= high; j++) {
-                    [numbers addObject:[NSNumber numberWithInteger:j]];
+        NSLog(@"%@", postNumbers);
+        #pragma mark Tag mode
+        if ([mode isEqualToString:@"tag"]) {
+            
+            PLKonachan* page;
+            fprintf(stdout, "Getting Konachan... ");
+            page = [PLKonachan page];
+            PLKonachanPost* post = [page newestPost];
+            if ([postNumbers count] < 1) {
+                for (NSInteger i = [page newestPostNumber]; i >= 0; i--) {
+                    [postNumbers addObject:[NSString stringWithFormat:@"%li", i]];
                 }
             }
-            else
-                [numbers addObject:[NSNumber numberWithInteger:[[element objectAtIndex:0] integerValue]]];
+            fprintf(stdout, "done\n");
+            
+            for (NSInteger i = 0; i < [postNumbers count]; i++) {
+                fprintf(stdout, "Tagging photo %s... ", [[postNumbers objectAtIndex:i] UTF8String]);
+                [post setPostNumber:[[[[postNumbers objectAtIndex:i] componentsSeparatedByString:@" - "] objectAtIndex:1] integerValue] andUpdate:YES];
+                apertureTagPhoto(post);
+                fprintf(stdout, "done\n");
+            }
         }
         
-#pragma mark Parsing to, from and range parameters
-        
-        NSInteger from = [args integerForKey:@"from"];
-        if ([[args stringForKey:@"from"] isEqualToString:@"maxPost"])
-            from = [page newestPostNumber];
-        NSInteger to = [args integerForKey:@"to"];
-        if ([[args stringForKey:@"to"] isEqualToString:@"maxPost"])
-            to = [page newestPostNumber];
-        NSInteger range = [args integerForKey:@"range"];
-        if (range != 0) {
-            if (to == 0)
-                to = from + range;
-            if (from == 0)
-                from = to - range;
-        }
-        if (to == 0 && [numbers count] == 0)
-            to = [page newestPostNumber];
-        if (to < from) {
-            NSInteger h = to;
-            to = from;
-            from = h;
-        }
-        if (to != from)
-            for (NSInteger i = from; i <= to; i++)
-                [numbers addObject:[NSNumber numberWithInteger:i]];
-        
+        if ([site isEqualToString:@"konachan"]) {
+            PLKonachan* page;
+            fprintf(stdout, "Getting Konachan... ");
+            page = [PLKonachan page];
+            PLKonachanPost* post = [page newestPost];
+            if ([postNumbers count] < 1) {
+                for (NSInteger i = [page newestPostNumber]; i >= 0; i--) {
+                    [postNumbers addObject:[NSString stringWithFormat:@"%li", i]];
+                }
+            }
+            fprintf(stdout, "done\n");
+            
+#pragma mark Tag mode
+            if ([mode isEqualToString:@"tag"]) {
+                if (album) {
+                    fprintf(stdout, "Getting photos for album %s... ", [album UTF8String]);
+                    postNumbers = [NSMutableArray arrayWithArray:apertureGetPhotos(album)];
+                    fprintf(stdout, "got %lu photos\n", [postNumbers count]);
+                }
+                for (NSInteger i = 0; i < [postNumbers count]; i++) {
+                    fprintf(stdout, "Tagging photo %s... ", [[postNumbers objectAtIndex:i] UTF8String]);
+                    [post setPostNumber:[[postNumbers objectAtIndex:i] integerValue] andUpdate:YES];
+                    apertureTagPhoto(post);
+                    fprintf(stdout, "done\n");
+                }
+            }
+            
 #pragma mark Import mode
-        
-        NSInteger postNumber = [[numbers objectAtIndex:0] integerValue];
-        if ([mode isEqualToString:@"import"]) {
-            post = [page postWithNumber:postNumber];
-            for (NSInteger i = 0; i < [numbers count]; i++) {
-                postNumber = [[numbers objectAtIndex:i] integerValue];
-                if (!apertureContains(postNumber)) {
-                    if (postIsFlash(postNumber)) {
-                        fprintf(stdout, "%ld >> is flash animation\n", postNumber);
+            if ([[params stringForKey:@"mode"] isEqualToString:@"import"]) {
+                if (!project)
+                    project = @"Import";
+                for (NSInteger i = 0; i < [postNumbers count]; i++) {
+                    if (apertureContains([postNumbers objectAtIndex:i], site)) {
+                        fprintf(stdout, "Library already contains photo %s", [[postNumbers objectAtIndex:i] UTF8String]);
                         continue;
                     }
-                    fprintf(stdout, "%ld >> not imported\n", postNumber);
-                    [post setPostNumber:postNumber andUpdate:YES];
-                    if (!pathContains(postNumber)) {
-                        if ([post postExists]) {
-                            fprintf(stdout, "%ld >> downloading\n", postNumber);
-                            [[post originalImageData] writeToFile:[TempPath stringByAppendingPathComponent:[post fileName]] atomically:YES];
-                        } else {
-                            fprintf(stdout, "%ld >> does not exist\n\n", postNumber);
-                            continue;
-                        }
-                    }
-                    else {
-                        fprintf(stdout, "%ld >> exists\n", postNumber);
-                    }
-                    apertureImport([ASTempPath stringByAppendingString:[post fileName]], [post rating], [post tags]);
-                    fprintf(stdout, "%ld >> imported\n\n", postNumber);
+                    fprintf(stdout, "Dowloading photo %s... ", [[postNumbers objectAtIndex:i] UTF8String]);
+                    [post setPostNumber:[[postNumbers objectAtIndex:i] integerValue] andUpdate:YES];
+                    NSString* path = [TempPath stringByAppendingPathComponent:[post fileName]];
+                    [[post originalImageData] writeToFile:path atomically:YES];
+                    fprintf(stdout, "done\n");
+                    fprintf(stdout, "Importing photo %s... ", [[postNumbers objectAtIndex:i] UTF8String]);
+                    apertureImport(path, post);
+                    fprintf(stdout, "done\n");
                 }
             }
         }
         
+        if ([site isEqualToString:@"sankaku"]) {
+            PLSankaku* page;
+            fprintf(stdout, "Getting Sankaku Channel... ");
+            page = [PLSankaku page];
+            PLSankakuPost* post = [page newestPost];
+            if ([postNumbers count] < 1) {
+                for (NSInteger i = [page newestPostNumber]; i >= 0; i--) {
+                    [postNumbers addObject:[NSString stringWithFormat:@"%li", i]];
+                }
+            }
+            fprintf(stdout, "done\n");
+            
 #pragma mark Tag mode
-        
-        if ([mode isEqualToString:@"tag"]) {
-            for (NSInteger i = 0; i < [numbers count]; i++) {
-                postNumber = [[numbers objectAtIndex:i] integerValue];
-                post = [page postWithNumber:postNumber];
-                //NSLog(@"%@", post);
-                if (apertureContains(postNumber)) {
-                    //NSLog(@"%@", [post tags]);
-                    apertureTagPhoto(postNumber, [post rating], [post tags]);
-                    fprintf(stdout, "%ld >> tagged\n", postNumber);
+            if ([[params stringForKey:@"mode"] isEqualToString:@"tag"]) {
+                if (album) {
+                    fprintf(stdout, "Getting photos for album %s... ", [album UTF8String]);
+                    postNumbers = [NSMutableArray arrayWithArray:apertureGetPhotos(album)];
+                    fprintf(stdout, "got %lu photos\n", [postNumbers count]);
+                }
+                for (NSInteger i = 0; i < [postNumbers count]; i++) {
+                    fprintf(stdout, "Tagging photo %s... ", [[postNumbers objectAtIndex:i] UTF8String]);
+                    [post setPostNumber:[[postNumbers objectAtIndex:i] integerValue] andUpdate:YES];
+                    apertureTagPhoto(post);
+                    fprintf(stdout, "done\n");
                 }
             }
-        }
-        
-#pragma mark TagScript mode
-        
-        if ([mode isEqualToString:@"tagscript"]) {
-            NSMutableString* script = [NSMutableString string];
-            for (NSInteger i = 0; i < [numbers count]; i++) {
-                postNumber = [[numbers objectAtIndex:i] integerValue];
-                post = [page postWithNumber:postNumber];
-                //NSLog(@"%@", post);
-                if (apertureContains(postNumber)) {
-                    //NSLog(@"%@", [post tags]);
-                    [script appendFormat:@"%@\n", getApertureTagPhoto(postNumber, [post rating], [post tags])];
+            
+#pragma mark Import mode
+            if ([[params stringForKey:@"mode"] isEqualToString:@"import"]) {
+                if (!project)
+                    project = @"Import";
+                for (NSInteger i = 0; i < [postNumbers count]; i++) {
+                    if (apertureContains([postNumbers objectAtIndex:i], site)) {
+                        fprintf(stdout, "Library already contains photo %s", [[postNumbers objectAtIndex:i] UTF8String]);
+                        continue;
+                    }
+                    fprintf(stdout, "Dowloading photo %s... ", [[postNumbers objectAtIndex:i] UTF8String]);
+                    [post setPostNumber:[[postNumbers objectAtIndex:i] integerValue] andUpdate:YES];
+                    NSString* path = [TempPath stringByAppendingPathComponent:[post fileName]];
+                    [[post originalImageData] writeToFile:path atomically:YES];
+                    fprintf(stdout, "done\n");
+                    fprintf(stdout, "Importing photo %s... ", [[postNumbers objectAtIndex:i] UTF8String]);
+                    apertureImport(path, post);
+                    fprintf(stdout, "done\n");
                 }
             }
-            fprintf(stdout, "%s", [script UTF8String]);
         }
     }
     return 0;
 }
 
-BOOL apertureContains(NSInteger postNumber) {
-    if ([[[[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:CheckExists, [NSString stringWithFormat:@"%ld", postNumber]]] executeAndReturnError:nil] stringValue])
+BOOL apertureContains(NSString* postNumber, NSString* site) {
+    NSString* class = nil;
+    if ([site isEqualToString:@"sankaku"])
+        class = @"Sankaku Channel";
+    if ([site isEqualToString:@"konachan"])
+        class = @"Konachan";
+    if ([[[[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:CheckExists, [NSString stringWithFormat:@"%@ - %@", class, postNumber], site]] executeAndReturnError:nil] stringValue])
         return YES;
     else
         return NO;
@@ -164,49 +191,57 @@ BOOL postIsFlash(NSInteger postNumber) {
         return NO;
 }
 
-void apertureImport(NSString* applescriptPath, NSString* rating, NSArray* tags) {
+void apertureImport(NSString* path, PLPost* post) {
     NSString* color = nil;
-    if ([rating isEqualToString:@"Explicit"])
+    if ([[post rating] isEqualToString:@"Explicit"])
         color = @"red";
-    if ([rating isEqualToString:@"Questionable"])
+    if ([[post rating] isEqualToString:@"Questionable"])
         color = @"yellow";
-    if ([rating isEqualToString:@"Safe"])
+    if ([[post rating] isEqualToString:@"Safe"])
         color = @"green";
+    if (![post postExists])
+        color = @"gray";
     NSMutableString* makeKeywords = [NSMutableString string];
-    for (int i = 0; i < [tags count]; i++) {
-        [makeKeywords appendFormat:MakeKeyword, [[tags objectAtIndex:i] name], [[tags objectAtIndex:i] category]];
+    for (int i = 0; i < [[post tags] count]; i++) {
+        [makeKeywords appendFormat:MakeKeyword, [[[[post tags] objectAtIndex:i] name] stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"], [[[post tags] objectAtIndex:i] category]];
     }
-    [[[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:ImportFile, applescriptPath, color, makeKeywords]] executeAndReturnError:nil];
+    [[[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:ImportFile, path, color, makeKeywords]] executeAndReturnError:nil];
 }
 
-void apertureTagPhoto(NSInteger postNumber, NSString* rating, NSArray* tags) {
+void apertureTagPhoto(PLPost* post) {
+    //NSLog(@"%@", post);
+    NSString* class = nil;
+    if ([post isKindOfClass:[PLSankakuPost class]])
+        class = @"Sankaku Channel";
+    if ([post isKindOfClass:[PLKonachanPost class]])
+        class = @"Konachan";
     NSString* color = nil;
-    if ([rating isEqualToString:@"Explicit"])
+    if ([[post rating] isEqualToString:@"Explicit"])
         color = @"red";
-    if ([rating isEqualToString:@"Questionable"])
+    if ([[post rating] isEqualToString:@"Questionable"])
         color = @"yellow";
-    if ([rating isEqualToString:@"Safe"])
+    if ([[post rating] isEqualToString:@"Safe"])
         color = @"green";
+    if (![post postExists])
+        color = @"gray";
     NSMutableString* makeKeywords = [NSMutableString string];
-    for (int i = 0; i < [tags count]; i++) {
-        [makeKeywords appendFormat:MakeKeyword, [[tags objectAtIndex:i] name], [[tags objectAtIndex:i] category]];
+    for (int i = 0; i < [[post tags] count]; i++) {
+        [makeKeywords appendFormat:MakeKeyword, [[[[post tags] objectAtIndex:i] name] stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"], [[[post tags] objectAtIndex:i] category]];
     }
-    [[[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:SetKeywords, [NSString stringWithFormat:@"%ld", postNumber], color, makeKeywords]] executeAndReturnError:nil];
+    //NSLog(@"%@", [NSString stringWithFormat:SetKeywords, [NSString stringWithFormat:@"%@ - %ld", class, [post postNumber]], color, makeKeywords]);
+    [[[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:SetKeywords, [NSString stringWithFormat:@"%@ - %ld", class, [post postNumber]], color, makeKeywords]] executeAndReturnError:nil];
 }
 
-NSString* getApertureTagPhoto(NSInteger postNumber, NSString* rating, NSArray* tags) {
-    NSString* color = nil;
-    if ([rating isEqualToString:@"Explicit"])
-        color = @"red";
-    if ([rating isEqualToString:@"Questionable"])
-        color = @"yellow";
-    if ([rating isEqualToString:@"Safe"])
-        color = @"green";
-    NSMutableString* makeKeywords = [NSMutableString string];
-    for (int i = 0; i < [tags count]; i++) {
-        [makeKeywords appendFormat:MakeKeyword, [[tags objectAtIndex:i] name], [[tags objectAtIndex:i] category]];
+NSArray* apertureGetPhotos(NSString* container) {
+    NSAppleEventDescriptor* event = [[[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:GetPhotos, container]] executeAndReturnError:nil];
+    NSMutableArray* result = [NSMutableArray array];
+    NSInteger i = 1;
+    NSString* string;
+    while ((string = [[event descriptorAtIndex:i] stringValue])) {
+        [result addObject:string];
+        i++;
     }
-    return [NSString stringWithFormat:SetKeywords, [NSString stringWithFormat:@"%ld", postNumber], color, makeKeywords];
+    return [result sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 }
 
 BOOL pathContains(NSInteger postNumber) {

@@ -38,7 +38,14 @@
     elements = [doc searchWithXPathQuery:@"//li[@class='tag-type-general'] | //li[@class='tag-type-artist'] | //li[@class='tag-type-character'] | //li[@class='tag-type-copyright'] | //li[@class='tag-type-style']"];
     for (int i = 0; i < [elements count]; i++) {
         e = [elements objectAtIndex:i];
-        [tags addObject:[PLTag tagWithType:[[[e attributes] objectForKey:@"class"] stringByReplacingOccurrencesOfString:@"tag-type-" withString:@""] andName:[[[e children] objectAtIndex:3] content]]];
+        for (int j = 0; j < [[e children] count]; j++) {
+            if ([[[[e children] objectAtIndex:j] objectForKey:@"href"] rangeOfString:@"?tags="].location != NSNotFound) {
+                NSString* type = [[[e attributes] objectForKey:@"class"] stringByReplacingOccurrencesOfString:@"tag-type-" withString:@""];
+                NSString* name = [[[[[e children] objectAtIndex:j] objectForKey:@"href"] componentsSeparatedByString:@"="] objectAtIndex:1];
+                [tags addObject:[PLTag tagWithType:type andName:name]];
+                break;
+            }
+        }
     }
     [tags sortUsingComparator:(NSComparator)^(id obj1, id obj2){ return [[obj1 category] caseInsensitiveCompare:[obj2 category]]; }];
     [properties setValue:[NSArray arrayWithArray:tags] forKey:@"tags"];
@@ -55,6 +62,10 @@
 - (void)nextPost {
     _postNumber++;
     [self updateCache];
+}
+
+- (NSString*)fileName {
+    return [NSString stringWithFormat:@"Konachan - %@", [super fileName]];
 }
 
 @end

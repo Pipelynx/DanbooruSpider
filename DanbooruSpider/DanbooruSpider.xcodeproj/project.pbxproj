@@ -15,6 +15,13 @@
 		4B30DA5B14E1C46F00FA2C98 /* DanbooruSpider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAC264314E066A40052EEA7 /* DanbooruSpider.framework */; };
 		4B30DA6814E5A12500FA2C98 /* DanbooruSpider.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4BAC264314E066A40052EEA7 /* DanbooruSpider.framework */; };
 		4B30DA6A14E5A3BA00FA2C98 /* DanbooruSpiderCLI in Deploy */ = {isa = PBXBuildFile; fileRef = 4B30DA4614E1C00900FA2C98 /* DanbooruSpiderCLI */; };
+		4B46BC8E1527129900D0E398 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B30DA4A14E1C00900FA2C98 /* Foundation.framework */; };
+		4B46BC911527129900D0E398 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B46BC901527129900D0E398 /* main.m */; };
+		4B46BC951527129900D0E398 /* dbta.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B46BC941527129900D0E398 /* dbta.1 */; };
+		4B46BC9C152712B600D0E398 /* PLAperture.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B46BC9B152712B600D0E398 /* PLAperture.m */; };
+		4B46BC9D152719A600D0E398 /* DanbooruSpider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAC264314E066A40052EEA7 /* DanbooruSpider.framework */; };
+		4B46BCA115273ADB00D0E398 /* dbta in Deploy */ = {isa = PBXBuildFile; fileRef = 4B46BC8C1527129900D0E398 /* dbta */; };
+		4B46BCA3152797AC00D0E398 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B46BCA2152797AC00D0E398 /* libsqlite3.0.dylib */; };
 		4B54263D14E7BB79005F6927 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B30DA4A14E1C00900FA2C98 /* Foundation.framework */; };
 		4B54264014E7BB79005F6927 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B54263F14E7BB79005F6927 /* main.m */; };
 		4B54264414E7BB79005F6927 /* getSankakuTags.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B54264314E7BB79005F6927 /* getSankakuTags.1 */; };
@@ -70,6 +77,13 @@
 			remoteGlobalIDString = 4BAC264214E066A40052EEA7;
 			remoteInfo = DanbooruSpider;
 		};
+		4B46BC9E152719B100D0E398 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4BAC263914E066A40052EEA7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4BAC264214E066A40052EEA7;
+			remoteInfo = DanbooruSpider;
+		};
 		4B6F302B14FA5F570037993B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4BAC263914E066A40052EEA7 /* Project object */;
@@ -114,6 +128,27 @@
 			dstSubfolderSpec = 0;
 			files = (
 				4B30DA6A14E5A3BA00FA2C98 /* DanbooruSpiderCLI in Deploy */,
+			);
+			name = Deploy;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B46BC8A1527129900D0E398 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				4B46BC951527129900D0E398 /* dbta.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		4B46BCA015273ACB00D0E398 /* Deploy */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/local/bin;
+			dstSubfolderSpec = 0;
+			files = (
+				4B46BCA115273ADB00D0E398 /* dbta in Deploy */,
 			);
 			name = Deploy;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,6 +205,13 @@
 		4B30DA5014E1C00900FA2C98 /* DanbooruSpiderCLI-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DanbooruSpiderCLI-Prefix.pch"; sourceTree = "<group>"; };
 		4B30DA5214E1C00900FA2C98 /* DanbooruSpiderCLI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DanbooruSpiderCLI.xcdatamodel; sourceTree = "<group>"; };
 		4B30DA5414E1C00900FA2C98 /* DanbooruSpiderCLI.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = DanbooruSpiderCLI.1; sourceTree = "<group>"; };
+		4B46BC8C1527129900D0E398 /* dbta */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = dbta; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B46BC901527129900D0E398 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4B46BC931527129900D0E398 /* dbta-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dbta-Prefix.pch"; sourceTree = "<group>"; };
+		4B46BC941527129900D0E398 /* dbta.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = dbta.1; sourceTree = "<group>"; };
+		4B46BC9A152712B600D0E398 /* PLAperture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAperture.h; sourceTree = "<group>"; };
+		4B46BC9B152712B600D0E398 /* PLAperture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAperture.m; sourceTree = "<group>"; };
+		4B46BCA2152797AC00D0E398 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		4B54260C14E70E60005F6927 /* Automator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Automator.framework; path = System/Library/Frameworks/Automator.framework; sourceTree = SDKROOT; };
 		4B54263B14E7BB79005F6927 /* getSankakuTags */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = getSankakuTags; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B54263F14E7BB79005F6927 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -235,6 +277,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4B46BC891527129900D0E398 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B46BCA3152797AC00D0E398 /* libsqlite3.0.dylib in Frameworks */,
+				4B46BC9D152719A600D0E398 /* DanbooruSpider.framework in Frameworks */,
+				4B46BC8E1527129900D0E398 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4B54263814E7BB79005F6927 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -296,6 +348,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4B46BC8F1527129900D0E398 /* dbta */ = {
+			isa = PBXGroup;
+			children = (
+				4B46BC901527129900D0E398 /* main.m */,
+				4B46BC941527129900D0E398 /* dbta.1 */,
+				4B46BC9A152712B600D0E398 /* PLAperture.h */,
+				4B46BC9B152712B600D0E398 /* PLAperture.m */,
+				4B46BC921527129900D0E398 /* Supporting Files */,
+			);
+			path = dbta;
+			sourceTree = "<group>";
+		};
+		4B46BC921527129900D0E398 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4B46BC931527129900D0E398 /* dbta-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		4B54263E14E7BB79005F6927 /* getSankakuTags */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,11 +407,13 @@
 		4BAC263714E066A40052EEA7 = {
 			isa = PBXGroup;
 			children = (
+				4B46BCA2152797AC00D0E398 /* libsqlite3.0.dylib */,
 				4BAC264C14E066A40052EEA7 /* DanbooruSpider */,
 				4BAC266214E066A40052EEA7 /* DanbooruSpiderTests */,
 				4B30DA4C14E1C00900FA2C98 /* DanbooruSpiderCLI */,
 				4B54263E14E7BB79005F6927 /* getSankakuTags */,
 				4B6F302014FA5F110037993B /* sankakuToAperture */,
+				4B46BC8F1527129900D0E398 /* dbta */,
 				4BAC264514E066A40052EEA7 /* Frameworks */,
 				4BAC264414E066A40052EEA7 /* Products */,
 			);
@@ -353,6 +427,7 @@
 				4B30DA4614E1C00900FA2C98 /* DanbooruSpiderCLI */,
 				4B54263B14E7BB79005F6927 /* getSankakuTags */,
 				4B6F301D14FA5F110037993B /* sankakuToAperture */,
+				4B46BC8C1527129900D0E398 /* dbta */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -537,6 +612,25 @@
 			productReference = 4B30DA4614E1C00900FA2C98 /* DanbooruSpiderCLI */;
 			productType = "com.apple.product-type.tool";
 		};
+		4B46BC8B1527129900D0E398 /* dbta */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B46BC981527129900D0E398 /* Build configuration list for PBXNativeTarget "dbta" */;
+			buildPhases = (
+				4B46BC881527129900D0E398 /* Sources */,
+				4B46BC891527129900D0E398 /* Frameworks */,
+				4B46BC8A1527129900D0E398 /* CopyFiles */,
+				4B46BCA015273ACB00D0E398 /* Deploy */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4B46BC9F152719B100D0E398 /* PBXTargetDependency */,
+			);
+			name = dbta;
+			productName = dbta;
+			productReference = 4B46BC8C1527129900D0E398 /* dbta */;
+			productType = "com.apple.product-type.tool";
+		};
 		4B54263A14E7BB79005F6927 /* getSankakuTags */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4B54264514E7BB79005F6927 /* Build configuration list for PBXNativeTarget "getSankakuTags" */;
@@ -638,6 +732,7 @@
 				4B30DA4514E1C00900FA2C98 /* DanbooruSpiderCLI */,
 				4B54263A14E7BB79005F6927 /* getSankakuTags */,
 				4B6F301C14FA5F110037993B /* sankakuToAperture */,
+				4B46BC8B1527129900D0E398 /* dbta */,
 			);
 		};
 /* End PBXProject section */
@@ -685,6 +780,15 @@
 				4B30DA4E14E1C00900FA2C98 /* main.m in Sources */,
 				4B30DA5314E1C00900FA2C98 /* DanbooruSpiderCLI.xcdatamodeld in Sources */,
 				4B96A82814EC63D200583D71 /* NSNumber+Formatting.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B46BC881527129900D0E398 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B46BC911527129900D0E398 /* main.m in Sources */,
+				4B46BC9C152712B600D0E398 /* PLAperture.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -740,6 +844,11 @@
 			target = 4BAC264214E066A40052EEA7 /* DanbooruSpider */;
 			targetProxy = 4B30DA6514E5A0A000FA2C98 /* PBXContainerItemProxy */;
 		};
+		4B46BC9F152719B100D0E398 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4BAC264214E066A40052EEA7 /* DanbooruSpider */;
+			targetProxy = 4B46BC9E152719B100D0E398 /* PBXContainerItemProxy */;
+		};
 		4B6F302C14FA5F570037993B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4BAC264214E066A40052EEA7 /* DanbooruSpider */;
@@ -788,6 +897,24 @@
 				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DanbooruSpiderCLI/DanbooruSpiderCLI-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4B46BC961527129900D0E398 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dbta/dbta-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4B46BC971527129900D0E398 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "dbta/dbta-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -941,6 +1068,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		4B46BC981527129900D0E398 /* Build configuration list for PBXNativeTarget "dbta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B46BC961527129900D0E398 /* Debug */,
+				4B46BC971527129900D0E398 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		4B54264514E7BB79005F6927 /* Build configuration list for PBXNativeTarget "getSankakuTags" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -957,6 +1092,7 @@
 				4B6F302914FA5F110037993B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4BAC263C14E066A40052EEA7 /* Build configuration list for PBXProject "DanbooruSpider" */ = {
 			isa = XCConfigurationList;

@@ -57,4 +57,8 @@
     [self updateCache];
 }
 
+- (NSString*)fileName {
+    return [NSString stringWithFormat:@"Donmai - %@", [super fileName]];
+}
+
 @end

@@ -8,6 +8,7 @@
 
 #import "PLPage.h"
 #import "PLPost.h"
+#import "PLTag.h"
 
 @implementation PLPost
 
@@ -33,6 +34,12 @@
 - (void)updateCache {
     neverUpdated = NO;
     _source = [NSString stringWithContentsOfURL:[self URL] encoding:NSUTF8StringEncoding error:nil];
+    int i = 0;
+    while ((([_source rangeOfString:@"<title>Error</title>"].location != NSNotFound) || ([_source rangeOfString:@"<p>Error."].location != NSNotFound)) && (i < 10)) {
+        [NSThread sleepForTimeInterval:1];
+        _source = [NSString stringWithContentsOfURL:[self URL] encoding:NSUTF8StringEncoding error:nil];
+        i++;
+    }
     return;
 }
 - (NSString*)ratingWithDocument:(TFHpple*)doc {
@@ -125,6 +132,15 @@
     if (neverUpdated)
         [self updateCache];
     return [properties valueForKey:@"tags"];
+}
+- (NSString*)tagsString {
+    NSMutableString* tagsString = [NSMutableString string];
+    NSArray* tags = [self tags];
+    for (NSInteger i = 0; i < [tags count]; i++) {
+        PLTag* tag = [tags objectAtIndex:i];
+        [tagsString appendFormat:@"%@\t%@\n", [tag name], [tag category]];
+    }
+    return tagsString;
 }
 - (NSDecimalNumber*)voteAverage {
     if (neverUpdated)
